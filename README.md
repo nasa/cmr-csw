@@ -3,10 +3,6 @@
 Visit NASA's CSW based on the EOSDIS COMMON METADATA REPOSITORY (CMR) at
 [https://cmr.earthdata.nasa.gov/csw](https://cmr.earthdata.nasa.gov/csw)
 
-Travis CI: [![Build Status](https://api.travis-ci.org/xptech/cmr-csw.svg?branch=master)](https://api.travis-ci.org/xptech/cmr-csw.svg?branch=master)
-
-[ ![Codeship Status for cvdgeorge/cmr-catalog-service-for-the-web](https://app.codeship.com/projects/9ca0b330-3a85-0135-7b7c-6ed90c5c9eed/status?branch=master)](https://app.codeship.com/projects/228646)
-
 ## About
 The CMR CSW is a web application developed by [NASA](http://nasa.gov) [EOSDIS](https://earthdata.nasa.gov)
 to enable data discovery, search, and access across EOSDIS' Earth Science data holdings.
