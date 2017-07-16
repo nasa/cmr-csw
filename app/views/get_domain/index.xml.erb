@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:GetDomainResponse xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
+  <% if !@model.property_names_domain_values.nil? %>
+    <% @model.property_names_domain_values.each do |property| %>
+      <csw:DomainValues type="csw:record">
+        <csw:PropertyName><%= property[:name] %></csw:PropertyName>
+        <% if property[:supported] %>
+          <% case property[:class]::TYPE %>
+            <% when 'RangeOfValues' %>
+        <csw:RangeOfValues>
+          <csw:MinValue><%= property[:class]::MIN_VALUE %></csw:MinValue>
+          <csw:MaxValue><%= property[:class]::MAX_VALUE %></csw:MaxValue>
+        </csw:RangeOfValues>
+            <% when 'ListOfValues' %>
+        <csw:ListOfValues>
+          <% property[:class]::LIST_OF_VALUES.each do |value| %>
+          <csw:Value><%= value %></csw:Value>
+          <% end %>
+        </csw:ListOfValues>
+            <% when 'ConceptualScheme' %>
+        <csw:ConceptualScheme>
+          <csw:Name><%= property[:class]::NAME %></csw:Name>
+          <csw:Document><%= property[:class]::DOCUMENT %></csw:Document>
+          <csw:Authority><%= property[:class]::AUTHORITY %></csw:Authority>
+        </csw:ConceptualScheme>
+          <% end %>
+        <% end %>
+      </csw:DomainValues>
+    <% end %>
+  <% end %>
+  <% if !@model.parameter_names_domain_values.nil? %>
+    <% @model.parameter_names_domain_values.each do |parameter| %>
+      <csw:DomainValues type="csw:record">
+        <csw:ParameterName><%= parameter[:name] %></csw:ParameterName>
+        <% if parameter[:supported] %>
+          <% case parameter[:class]::TYPE %>
+            <% when 'RangeOfValues' %>
+        <csw:RangeOfValues>
+          <csw:MinValue><%= parameter[:class]::MIN_VALUE %></csw:MinValue>
+          <csw:MaxValue><%= parameter[:class]::MAX_VALUE %></csw:MaxValue>
+        </csw:RangeOfValues>
+            <% when 'ListOfValues' %>
+        <csw:ListOfValues>
+                <% parameter[:class]::LIST_OF_VALUES.each do |value| %>
+          <csw:Value><%= value %></csw:Value>
+                <% end %>
+        </csw:ListOfValues>
+            <% when 'ConceptualScheme' %>
+        <csw:ConceptualScheme>
+          <csw:Name><%= parameter[:class]::NAME %></csw:Name>
+          <csw:Document><%= parameter[:class]::DOCUMENT %></csw:Document>
+          <csw:Authority><%= parameter[:class]::AUTHORITY %></csw:Authority>
+        </csw:ConceptualScheme>
+          <% end %>
+        <% end %>
+      </csw:DomainValues>
+    <% end %>
+  <% end %>
+</csw:GetDomainResponse>
+

@@ -1,0 +1,2 @@
+module GetCapabilitiesHelper
+end

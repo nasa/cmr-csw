@@ -1,0 +1,775 @@
+<h1>Collection CSW</h1>
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#get-capabilities">The GetCapabilities request</a></li>
+  <li><a href="#get-records">The GetRecords request</a></li>
+  <li><a href="#get-record-by-id">The GetRecordById request</a></li>
+  <li><a href="#get-domain">The GetDomain request</a></li>
+  <li><a href="#describe-record">The DescribeRecord request</a></li>
+</ul>
+<section class="overview">
+  <h2><a name="overview"></a>Overview</h2>
+  <p>
+    <a target="_blank" href="http://www.opengeospatial.org/standards/cat">Catalog Service for the Web (CSW)</a> is an
+    OGC
+    standard for exposing a catalogue of geospatial records in XML on the Internet (over HTTP).
+  </p>
+  <p>
+    This implementation provides a collection-level CSW API over NASA EOSDIS'
+    <a target="_blank" href="https://cmr.earthdata.nasa.gov">Common Metadata Repository (CMR)</a> earth data discovery
+    API.
+  </p>
+  <h1>Supported requests</h1>
+  <p>CMR CSW supports HTTP protocol binding as per section 10.2 of the
+    <a target="_blank" href="http://www.opengeospatial.org/standards/cat">OpenGIS® Catalogue Services Specification
+      version 2.0.2</a></p>
+</section>
+<section class="get-capabilities">
+  <h2><a name="get-capabilities"></a>GetCapabilities</h2>
+
+  <p>
+    Allows CSW clients to retrieve service metadata. The response to a GetCapabilities request is
+    an XML document containing service metadata about this server.
+  </p>
+  <h3>Supported methods</h3>
+  <ul class="methods">
+    <% GetCapability::HTTP_METHODS.each do |method| %>
+        <li><%= method.upcase %></li>
+    <% end %>
+  </ul>
+  <h3>Supported output formats</h3>
+  <ul class="output-formats">
+    <% GetCapability::OUTPUT_FILE_FORMATS.each do |format| %>
+        <li><%= format %></li>
+    <% end %>
+  </ul>
+  <h3>Examples</h3>
+  <ul>
+    <li>
+      <a target="_blank" href="<%= root_url %>collections?request=GetCapabilities&service=CSW&version=2.0.2">GET <%= root_url %>collections?request=GetCapabilities&service=CSW&version=2.0.2</a></li>
+    <li>POST <%= root_url %>collections with XML request body:
+<pre><code>&lt;csw:GetCapabilities
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd&quot;
+    service=&quot;CSW&quot;
+    version=&quot;2.0.2&quot;&gt;
+&lt;/csw:GetCapabilities&gt;</code></pre>
+    </li>
+  </ul>
+</section>
+<section class="get-records">
+  <h2><a name="get-records"/>GetRecords</h2>
+
+  <p>
+    The primary means of resource discovery in the general model are the two operations search and present. In the
+    HTTP protocol binding these are combined in the form of the mandatory GetRecords operation, which does a search
+    and a piggybacked present.
+  </p>
+
+  <p>
+    The search portion of the GetRecords operation is encoded using the Query element. The Query element includes the
+    parameters typeName and Constraint. The typeName parameter is used to specify which entities, from the information
+    model of the catalogue, shall be queried. The Constraint parameter is used to specify which query constraints
+    shall be applied to identify the request set.
+  </p>
+  The present portion of the GetRecords operation is encoded using the outputSchema parameter and the
+  ElementName/ElementSetName parameter(s). The outputSchema parameter indicates which schema shall be used to
+  generate the response to the GetRecords operation. The ElementName or ElementSetName parameter is used to specify
+  which properties of the outputSchema to include in each record in the GetRecords response.
+  </p>
+  <h3>Supported methods</h3>
+  <ul class="methods">
+    <% GetRecords::HTTP_METHODS.each do |method| %>
+        <li><%= method.upcase %></li>
+    <% end %>
+  </ul>
+  <h3>Supported element set names</h3>
+  <ul class="response-elements">
+    <% GetRecords::RESPONSE_ELEMENTS.each do |element| %>
+        <li><%= element %></li>
+    <% end %>
+  </ul>
+  <h3>Supported result types</h3>
+  <ul class="result-types">
+    <% GetRecords::RESULT_TYPES.each do |type| %>
+        <li><%= type %></li>
+    <% end %>
+  </ul>
+  <h3>Supported output schemas</h3>
+  <ul class="output-schemas">
+    <% GetRecords::OUTPUT_SCHEMAS.each do |schema| %>
+        <li><a target="_blank" href="<%= schema.html_safe %>"><%= to_schema_label(schema) %></a></li>
+    <% end %>
+  </ul>
+  <h3>Supported output formats</h3>
+  <ul class="output-formats">
+    <% GetRecords::OUTPUT_FILE_FORMATS.each do |format| %>
+        <li><%= format %></li>
+    <% end %>
+  </ul>
+  <h3>Examples</h3>
+  <ul>
+    <li><a href="#get-records-post">POST requests using the OGC Filter query language</a></li>
+    <li><a href="#get-records-get">GET requests using the Constraint (a.k.a Common) Query Language (CQL)</a></li>
+  </ul>
+  <h4><a name="get-records-post"/>POST Requests using the OGC Filter query language</h4>
+  <ul>
+    <li>POST to <%= root_url %>collections for <span class="emphasis">only searching for CMR CWIC collections (datasets)</span> search with NO additional constraints:
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                    &lt;ogc:PropertyIsLike&gt;
+                        &lt;ogc:PropertyName&gt;IsCwic&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;true&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLike&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+      <li>POST to <%= root_url %>collections for <span class="emphasis">only searching for CMR GEOSS collections (datasets)</span> search with NO additional constraints:
+  <pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+      outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+      startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+      xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+      xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+      xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+      &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+          &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+          &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+              &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                      &lt;ogc:PropertyIsLike&gt;
+                          &lt;ogc:PropertyName&gt;IsGeoss&lt;/ogc:PropertyName&gt;
+                          &lt;ogc:Literal&gt;true&lt;/ogc:Literal&gt;
+                      &lt;/ogc:PropertyIsLike&gt;
+              &lt;/ogc:Filter&gt;
+          &lt;/csw:Constraint&gt;
+      &lt;/csw:Query&gt;
+  &lt;/csw:GetRecords&gt;</code></pre>
+      </li>
+    </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for <span class="emphasis">all CMR collections (datasets)</span> search with NO constraints:
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an area of interest (AOI)
+      <span class="emphasis">iso:BoundingBox</span> constraint and result entries <span class="emphasis">resultType="results"</span>.
+      The <span class="emphasis">gml:lowerCorner</span> and <span class="emphasis">gml:upperCorner</span> points must
+      formatted as <span class="emphasis-format">LONGITUDE LATITUDE</span>.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+              &lt;ogc:BBOX&gt;
+                &lt;ogc:PropertyName&gt;iso:BoundingBox&lt;/ogc:PropertyName&gt;
+                &lt;gml:Envelope xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                  &lt;gml:lowerCorner&gt;-180 -90&lt;/gml:lowerCorner&gt;
+                  &lt;gml:upperCorner&gt;180 90&lt;/gml:upperCorner&gt;
+                &lt;/gml:Envelope&gt;
+              &lt;/ogc:BBOX&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an AOI
+      <span class="emphasis">iso:BoundingBox</span> constraint and result hits <span class="emphasis">resultType="hits"</span>.
+      The <span class="emphasis">gml:lowerCorner</span> and <span class="emphasis">gml:upperCorner</span> points must
+      formatted as <span class="emphasis-format">LONGITUDE LATITUDE</span>.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;hits&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+              &lt;ogc:BBOX&gt;
+                &lt;ogc:PropertyName&gt;iso:BoundingBox&lt;/ogc:PropertyName&gt;
+                &lt;gml:Envelope xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                  &lt;gml:lowerCorner&gt;-180 -90&lt;/gml:lowerCorner&gt;
+                  &lt;gml:upperCorner&gt;180 90&lt;/gml:upperCorner&gt;
+                &lt;/gml:Envelope&gt;
+              &lt;/ogc:BBOX&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an AOI
+      <span class="emphasis">iso:Polygon constraint</span>.  The <span class="emphasis">gml:posList</span> must contain
+      a sequence of <span class="emphasis-format">LONGITUDE LATITUDE</span> points with the first and last point being
+      identical in order to close the <span class="emphasis">iso:Polygon</span>.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;brief&lt;/csw:ElementSetName&gt;
+         &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+           &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                &lt;!-- Operator defaults to overlaps / intersects --&gt;
+                &lt;ogc:PropertyName&gt;Geometry&lt;/ogc:PropertyName&gt;
+                &lt;gml:Polygon srsName=&quot;http://www.opengis.net/gml/srs/epsg.xml#4326&quot; xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                  &lt;gml:outerBoundaryIs&gt;
+                    &lt;gml:LinearRing&gt;
+                      &lt;gml:posList&gt;-165.938 47.517 -138.516 27.684 -78.047 28.922 -85.781 64.168 -160.313 66.231 -165.938 47.517&lt;/gml:posList&gt;
+                    &lt;/gml:LinearRing&gt;
+                  &lt;/gml:outerBoundaryIs&gt;
+                &lt;/gml:Polygon&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an AOI
+      <span class="emphasis">iso:LineString</span>.  The <span class="emphasis">gml:posList</span> must contain
+      a sequence of <span class="emphasis-format">LONGITUDE LATITUDE</span> distinct points.
+    <pre><code>&lt;csw:GetRecords xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; resultType=&quot;results&quot;
+    xmlns:gmd=&quot;http://www.isotc211.org/2005/gmi&quot; service=&quot;CSW&quot; version=&quot;2.0.2&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+              &lt;gml:LineString xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                &lt;gml:posList&gt;-165.938 47.517 -138.516 27.684 -78.047 28.922 -85.781 64.168 -160.313 66.231&lt;/gml:posList&gt;
+              &lt;/gml:LineString&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an AOI
+      <span class="emphasis">iso:Point constraint</span>. The <span class="emphasis">gml:pos</span> must contain
+      a <span class="emphasis-format">LONGITUDE LATITUDE</span> point.
+    <pre><code>&lt;csw:GetRecords xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; resultType=&quot;results&quot;
+    xmlns:gmd=&quot;http://www.isotc211.org/2005/gmi&quot; service=&quot;CSW&quot; version=&quot;2.0.2&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+              &lt;gml:Point xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                &lt;gml:pos&gt;-165.938 47.517&lt;/gml:pos&gt;
+              &lt;/gml:Point&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with a time of interest (TOI) collection
+      temporal
+      extent <span class="emphasis">TempExtent_begin</span> and <span class="emphasis">TempExtent_end</span> constraints.
+      The <span>ogc:Literal</span> value for the <span class="emphasis">TempExtent_begin</span> and
+      <span class="emphasis">TempExtent_end</span> emphasiss must be in the ISO 8601 datetime format UTC
+      <span class="emphasis-format">YYYY-MM-ddThh:mm:ssZ</span>.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmi&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+              &lt;ogc:And&gt;
+                    &lt;ogc:PropertyIsGreaterThanOrEqualTo&gt;
+                        &lt;ogc:PropertyName&gt;TempExtent_begin&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;1990-09-03T00:00:01Z&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsGreaterThanOrEqualTo&gt;
+                    &lt;ogc:PropertyIsLessThanOrEqualTo&gt;
+                        &lt;ogc:PropertyName&gt;TempExtent_end&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;2008-09-06T23:59:59Z&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLessThanOrEqualTo&gt;
+              &lt;/ogc:And&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with a TOI collection modification
+      temporal extent <span class="emphasis">Modified</span> constraint.  The <span>ogc:Literal</span> value for the
+      <span class="emphasis">Modified</span> must be in the ISO 8601 date format
+      <span class="emphasis-format">YYYY-MM-dd</span>.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                    &lt;ogc:PropertyIsGreaterThanOrEqualTo&gt;
+                        &lt;ogc:PropertyName&gt;Modified&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;2016-04-01&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsGreaterThanOrEqualTo&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with
+      <span class="emphasis">ScienceKeywords</span> constraint. The valid ScienceKeywords values are specified in
+      <a target="_blank" href="http://gcmd.nasa.gov/learn/keyword_list.html">NASA's GCMD Science Keywords and Associated Directory Keywords</a>.
+      They can also be retrieved via the <a href="#get-domain">GetDomain</a> call with the <span class="emphasis">ScienceKeywords</span> PropertyName.
+<pre><code>&lt;csw:GetRecords xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; resultType=&quot;results&quot;
+    xmlns:gmd=&quot;http://www.isotc211.org/2005/gmi&quot; service=&quot;CSW&quot; version=&quot;2.0.2&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                    &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                        &lt;ogc:PropertyName&gt;ScienceKeywords&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;EARTH SCIENCE&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLike&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with a
+      <span class="emphasis">Title</span> constraint and wildcard.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                    &lt;ogc:PropertyName&gt;Title&lt;/ogc:PropertyName&gt;
+                    &lt;ogc:Literal&gt;*MO*DIS*&lt;/ogc:Literal&gt;
+                &lt;/ogc:PropertyIsLike&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with an
+      <span class="emphasis">Instrument</span> constraint.  The valid Instrument values are specified in
+      <a target="_blank" href="http://gcmd.nasa.gov/learn/keyword_list.html">NASA's GCMD Science Keywords and Associated Directory Keywords</a>.
+      They can also be retrieved via the <a href="#get-domain">GetDomain</a> call with the <span class="emphasis">Instrument</span> PropertyName.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                    &lt;ogc:PropertyName&gt;Instrument&lt;/ogc:PropertyName&gt;
+                    &lt;ogc:Literal&gt;MISR&lt;/ogc:Literal&gt;
+                &lt;/ogc:PropertyIsLike&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with a
+      <span class="emphasis">Platform</span> constraint.  The valid Platform values are specified in
+      <a target="_blank" href="http://gcmd.nasa.gov/learn/keyword_list.html">NASA's GCMD Science Keywords and Associated Directory Keywords</a>.
+      They can also be retrieved via the <a href="#get-domain">GetDomain</a> call with the <span class="emphasis">Platform</span> PropertyName.
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmd&quot; resultType=&quot;results&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                    &lt;ogc:PropertyName&gt;Platform&lt;/ogc:PropertyName&gt;
+                    &lt;ogc:Literal&gt;AQUA&lt;/ogc:Literal&gt;
+                &lt;/ogc:PropertyIsLike&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <ul>
+    <li>POST to <%= root_url %>collections for CMR collections search with a combined constraint
+      (AOI/TOI/Title/Platform/ScienceKeywords) and defaulted resultType (hits):
+<pre><code>&lt;csw:GetRecords maxRecords=&quot;10&quot; outputFormat=&quot;application/xml&quot;
+    outputSchema=&quot;http://www.isotc211.org/2005/gmi&quot; service=&quot;CSW&quot;
+    startPosition=&quot;1&quot; version=&quot;2.0.2&quot; xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+    xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:gmd=&quot;http://www.isotc211.org/2005/gmd&quot;
+    xmlns:gml=&quot;http://www.opengis.net/gml&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;
+    xmlns:rim=&quot;urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0&quot;&gt;
+    &lt;csw:Query typeNames=&quot;csw:Record&quot;&gt;
+        &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+        &lt;csw:Constraint version=&quot;1.1.0&quot;&gt;
+            &lt;ogc:Filter xmlns:ogc=&quot;http://www.opengis.net/ogc&quot;&gt;
+                &lt;ogc:And&gt;
+                    &lt;ogc:PropertyIsGreaterThanOrEqualTo&gt;
+                        &lt;ogc:PropertyName&gt;TempExtent_begin&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;1990-09-03T00:00:01Z&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsGreaterThanOrEqualTo&gt;
+                    &lt;ogc:PropertyIsLessThanOrEqualTo&gt;
+                        &lt;ogc:PropertyName&gt;TempExtent_end&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;2008-09-06T23:59:59Z&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLessThanOrEqualTo&gt;
+                    &lt;ogc:BBOX&gt;
+                        &lt;ogc:PropertyName&gt;iso:BoundingBox&lt;/ogc:PropertyName&gt;
+                        &lt;gml:Envelope xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+                            &lt;gml:lowerCorner&gt;-180 -90&lt;/gml:lowerCorner&gt;
+                            &lt;gml:upperCorner&gt;180 90&lt;/gml:upperCorner&gt;
+                        &lt;/gml:Envelope&gt;
+                    &lt;/ogc:BBOX&gt;
+                    &lt;ogc:PropertyIsLike escapeChar=&quot;\\&quot; singleChar=&quot;?&quot; wildCard=&quot;*&quot;&gt;
+                        &lt;ogc:PropertyName&gt;Title&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;*MODIS*&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLike&gt;
+                    &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                        &lt;ogc:PropertyName&gt;Platform&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;*AQUA*&lt;/ogc:Literal&gt;
+                    &lt;/ogc:PropertyIsLike&gt;
+                   &lt;ogc:PropertyIsLike wildCard=&quot;*&quot;&gt;
+                        &lt;ogc:PropertyName&gt;ScienceKeywords&lt;/ogc:PropertyName&gt;
+                        &lt;ogc:Literal&gt;EARTH SCIENCE&lt;/ogc:Literal&gt;
+                   &lt;/ogc:PropertyIsLike&gt;
+                &lt;/ogc:And&gt;
+            &lt;/ogc:Filter&gt;
+        &lt;/csw:Constraint&gt;
+    &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;</code></pre>
+    </li>
+  </ul>
+  <h4><a name="get-records-get"/>GetRecords GET requests using the CQL query language</h4>
+  <p>
+    The CMR CSW implementation of CQL <span class="emphasis">only supports the 'and' logical operator</span> and the following
+    CSW queryables inside the CQL 'constraint' GET request query parameter:
+    <ul>
+      <li><span class="emphasis">AnyText</span> with wildcard * and ? support</li>
+      <li><span class="emphasis">ArchiveCenter</span> with wildcard * and ? support</li>
+      <li><span class="emphasis">IsCwic</span> with the only value value of 'true', returns the CMR collection tagged as CWIC</li>
+      <li><span class="emphasis">IsGeoss</span> with the only value value of 'true', returns the CMR collection tagged as GEOSS</li>
+      <li><span class="emphasis">BoundingBox</span> specified as a comma (no spaces) separated string (ex. BoundingBox=lower_left_longitude,lower_left_latitude,upper_right_longitude,upper_right_latitude)</li>
+      <li><span class="emphasis">TempExtent_begin</span> specified as an ISO8601 datetime string yyyy-MM-ddTHH:mm:ssZ (ex. TempExtent_begin=2008-09-06T23:59:59Z)</li>
+      <li><span class="emphasis">TempExtent_end</span> specified as an ISO8601 datetime string yyyy-MM-ddTHH:mm:ssZ (ex. TempExtent_end=2010-09-06T23:59:59Z).  TempExtent_end must be after TempExtent_begin</li>
+    </ul>
+    Additional query parameters to be used with the GetRecords GET request are:
+    <ul>
+      <li><span class="emphasis">resultType</span> with supported values:
+        <% GetRecords::RESULT_TYPES.each do |rtype| %>
+            <%= rtype %>
+        <% end %>
+      </li>
+      <li><span class="emphasis">outputSchema</span> with supported values:
+        <% GetRecords::OUTPUT_SCHEMAS.each do |schema| %>
+            <%= schema %>
+        <% end %>
+      </li>
+      <li><span class="emphasis">ElementSetName</span> with supported values:
+        <% GetRecords::RESPONSE_ELEMENTS.each do |elem| %>
+            <%= elem %>
+        <% end %>
+      </li>
+    </ul>
+    More details about CQL are below:
+    <ul>
+      <li><a target="_blank" href="http://zing.z3950.org/cql/intro.html">A gentle introduction to CQL</a></li>
+      <li><a target="_blank" href="http://docs.oasis-open.org/search-ws/searchRetrieve/v1.0/os/part5-cql/searchRetrieve-v1.0-os-part5-cql.html">The OASIS CQL specification</a></li>
+    </ul>
+  </p>
+  <p>Sample GetRecords GET requests:</p>
+  <ul>
+    <li>Search results with the default all CMR collections, <span class="emphasis">ISO MENDS / GMI</span> output (http://www.isotc211.org/2005/gmi), full result set and <span class="emphasis">no constraints</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results</a>
+    </li>
+    <li>Search results with the <span class="emphasis">ISO 19115 GMD</span> output (http://www.isotc211.org/2005/gmd), full result set and <span class="emphasis">no constraints</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.isotc211.org/2005/gmd">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.isotc211.org/2005/gmd</a>
+    </li>
+    <li>Search results with <span class="emphasis">CSW</span> output (http://www.opengis.net/cat/csw/2.0.2), full result set and <span class="emphasis">no constraints</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2</a>
+    </li>
+    <li>Search results with <span class="emphasis">CSW</span> output (http://www.opengis.net/cat/csw/2.0.2), full result set and <span class="emphasis">an AnyText constraint</span> and wildcard support:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=AnyText=*MO?IS*">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=AnyText=*MO?IS*</a>
+    </li>
+    <li>Search results with <span class="emphasis">CSW</span> output (http://www.opengis.net/cat/csw/2.0.2), full result set and <span class="emphasis">a BoundingBox constraint</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=BoundingBox=-180.00,-90.00,180.00,90.00">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=BoundingBox=-180.00,-90.00,180.00,90.00</a>
+    </li>
+    <li>Search results with <span class="emphasis">CSW</span> output (http://www.opengis.net/cat/csw/2.0.2), full result set and <span class="emphasis">AnyText, BoundingBox, TempExtent_begin and TempExtent_end constraints</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=AnyText=*MO?IS* and BoundingBox=-180.00,-90.00,180.00,90.00 TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=AnyText=*MO?IS* and BoundingBox=-180.00,-90.00,180.00,90.00 TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z</a>
+    </li>
+    <li>Search results with <span class="emphasis">CSW</span> output (http://www.opengis.net/cat/csw/2.0.2), full result set and <span class="emphasis">ArchiveCenter constraint</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=ArchiveCenter=DHS*">GET <%= root_url %>collections?request=GetRecords&service=CSW&version=2.0.2&ElementSetName=full&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&CONSTRAINTLANGUAGE=CQL_TEXT&constraint=ArchiveCenter=DHS*</a>
+    </li>
+  </ul>
+</section>
+<section class="get-record-by-id">
+  <h2><a name="get-record-by-id"/>GetRecordById</h2>
+
+  <p>
+    This request retrieves the default representation of catalogue records using their
+    identifier. This operation is an implementation of the Present operation from the general model. This
+    operation presumes that a previous query has been performed in order to obtain the identifiers that may be used
+    with this operation. For example, records returned by a GetRecords operation may contain references to other
+    records in the catalogue that may be retrieved using the GetRecordById operation. This operation is also a subset
+    of the GetRecords operation, and is included as a convenient short form for retrieving and linking to records in a
+    catalogue.
+  </p>
+  <h3>Supported methods</h3>
+  <ul class="methods">
+    <% GetRecordById::HTTP_METHODS.each do |method| %>
+        <li><%= method.upcase %></li>
+    <% end %>
+  </ul>
+  <h3>Supported element set names</h3>
+  <ul class="response-elements">
+    <% GetRecordById::RESPONSE_ELEMENTS.each do |element| %>
+        <li><%= element %></li>
+    <% end %>
+  </ul>
+  <h3>Supported output schemas</h3>
+  <ul class="output-schemas">
+    <% GetRecordById::OUTPUT_SCHEMAS.each do |schema| %>
+        <li><a target="_blank" href="<%= schema.html_safe %>"><%= to_schema_label(schema) %></a></li>
+    <% end %>
+  </ul>
+  <h3>Supported output formats</h3>
+  <ul class="output-formats">
+    <% GetRecordById::OUTPUT_FILE_FORMATS.each do |format| %>
+        <li><%= format %></li>
+    <% end %>
+  </ul>
+  <h3>Examples</h3>
+  <ul>
+    <li>
+      <a target="_blank" href="<%= root_url %>collections?request=GetRecordById&service=CSW&version=2.0.2&outputSchema=http://www.isotc211.org/2005/gmi&ElementSetName=full&id=<%= Rails.configuration.concept_id %>">GET <%= root_url %>collections?request=GetRecordById&service=CSW&version=2.0.2&outputSchema=http://www.isotc211.org/2005/gmi&ElementSetName=full&id=<%= Rails.configuration.concept_id %></a>
+    </li>
+    <li>POST to <%= root_url %>collections with XML request body:
+<pre><code>&lt;csw:GetRecordById
+service=&quot;CSW&quot;
+version=&quot;2.0.2&quot;
+outputSchema=&quot;http://www.isotc211.org/2005/gmi&quot;
+xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;csw:Id&gt;<%= Rails.configuration.concept_id %>&lt;/csw:Id&gt;
+    &lt;ElementSetName typeNames=&quot;csw:Record&quot;&gt;full&lt;/ElementSetName&gt;
+&lt;/csw:GetRecordById&gt;</code></pre>
+    </li>
+  </ul>
+</section>
+<section class="get-domain">
+  <h2><a name="get-domain"/>GetDomain</h2>
+
+  <p>
+    Allows clients to retrieve the domain (allowed values) of some request parameters at the time the request is
+    invoked.
+    The returned information may be static domain information, but may also be dynamic in that the allowed values are
+    determined at runtime. The operation does a best attempt at returning information about a request parameter.
+  </p>
+  <h3>Supported methods</h3>
+  <ul class="methods">
+    <% GetDomain::HTTP_METHODS.each do |method| %>
+        <li><%= method.upcase %></li>
+    <% end %>
+  </ul>
+  <h3>Supported ParameterName values</h3>
+  <ul class="parameter-names">
+    <% GetDomain::VALID_PARAMETER_NAMES.keys.each do |param_name| %>
+        <li><%= param_name %></li>
+    <% end %>
+  </ul>
+  <h3>Supported PropertyName values</h3>
+  <ul class="parameter-names">
+    <% GetDomain::VALID_PROPERTY_NAMES.keys.each do |prop_name| %>
+        <li><%= prop_name %></li>
+    <% end %>
+  </ul>
+
+  <h3>Examples</h3>
+  <ul>
+    <li>Allowed values via a GetDomain GET request for the IsCwic (used to search only CWIC datasets) <span class="emphasis">PropertyName</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=IsCwic">GET <%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=IsCwic</a>
+    </li>
+
+    <li>Allowed values via a GetDomain POST to <%= root_url %>collections for the IsCwic (used to only search CWIC datasets) <span class="emphasis">PropertyName</span> with XML POST request body:
+<pre><code>&lt;GetDomain
+   service=&quot;CSW&quot;
+   version=&quot;2.0.2&quot;
+   xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd&quot;&gt;
+    &lt;PropertyName&gt;IsCwic&lt;/PropertyName&gt;
+&lt;/GetDomain&gt;</code></pre>
+    </li>
+    <li>Allowed values via a GetDomain GET request for the TempExtent_begin <span class="emphasis">PropertyName</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=TempExtent_begin">GET <%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=TempExtent_begin</a>
+    </li>
+    <li>Allowed values via a GetDomain POST to <%= root_url %>collections for the TempExtent_begin <span class="emphasis">PropertyName</span> with XML POST request body:
+<pre><code>&lt;GetDomain
+   service=&quot;CSW&quot;
+   version=&quot;2.0.2&quot;
+   xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd&quot;&gt;
+    &lt;PropertyName&gt;TempExtent_begin&lt;/PropertyName&gt;
+&lt;/GetDomain&gt;</code></pre>
+    </li>
+    <li>Allowed values via a GetDomain GET request for the TempExtent_begin, Temp_Extent_end and Modified <span class="emphasis">PropertyNames</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=TempExtent_begin,TempExtent_end,Modified">GET <%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&PropertyName=TempExtent_begin,TempExtent_end,Modified</a>
+    </li>
+    </br>
+    <li>Allowed values via a GetDomain GET request for the GetRecords.ElementSetName <span class="emphasis">ParameterName</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&ParameterName=GetRecords.ElementSetName">GET <%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&ParameterName=GetRecords.ElementSetName</a>
+    </li>
+    <li>Allowed values via a GetDomain POST to <%= root_url %>collections for the GetRecords.ElementSetName <span class="emphasis">ParameterName</span> with XML POST request body:
+<pre><code>&lt;GetDomain
+   service=&quot;CSW&quot;
+   version=&quot;2.0.2&quot;
+   xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd&quot;&gt;
+    &lt;ParameterName&gt;GetRecords.ElementSetName&lt;/ParameterName&gt;
+&lt;/GetDomain&gt;</code></pre>
+    </li>
+    <li>Allowed values via a GetDomain GET request for the GetRecords.ElementSetName,GetRecords.resultType and GetRecords.outputRecType <span class="emphasis">ParameterNames</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&ParameterName=GetRecords.ElementSetName,GetRecords.resultType,GetRecords.outputRecType">GET <%= root_url %>collections?request=GetDomain&service=CSW&version=2.0.2&ParameterName=GetRecords.ElementSetName,GetRecords.resultType,GetRecords.outputRecType</a>
+    </li>
+  </ul>
+</section>
+<section class="describe-record">
+  <h2><a name="describe-record"/>DescribeRecord</h2>
+
+  <p>
+    Allows clients to examine the anatomy of output schemas supported by this CSW by responding with the corresponding
+    XML Schema document.  The CMR CSW implementation supports the root element of the supported output schemas and does
+    not allow separate retrieval of individual schema elements.  As a consequence, one or more requested schemas will be
+    returned in their entirety.
+  </p>
+  <h3>Supported methods</h3>
+  <ul class="methods">
+    <% DescribeRecord::HTTP_METHODS.each do |method| %>
+        <li><%= method.upcase %></li>
+    <% end %>
+  </ul>
+  <h3>Supported namespaces</h3>
+  <ul class="namespaces">
+    <% DescribeRecord::OUTPUT_SCHEMAS.each do |ns| %>
+        <li><a target="_blank" href="<%= ns.html_safe %>"><%= ns %></a></li>
+    <% end %>
+  </ul>
+  <h3>Supported type names</h3>
+  <ul class="type-names">
+    <% DescribeRecord::TYPE_NAMES.each do |tn| %>
+        <li><a target="_blank" href="<%= tn.html_safe %>"><%= tn %></a></li>
+    <% end %>
+  </ul>
+
+  <h3>Examples</h3>
+  <ul>
+    <li>GET Retrieve the supported CSW schema <span class="emphasis">http://www.opengis.net/cat/csw/2.0.2</span> through its
+      root element TypeName <span class="emphasis">csw:Record</span>:
+      <a target="_blank" href="<%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(csw=http://www.opengis.net/cat/csw/2.0.2)&typeName=csw:Record">GET <%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(csw=http://www.opengis.net/cat/csw/2.0.2)&typeName=csw:Record</a>
+    </li>
+    <li>Retrieve the same schema via a POST to <%= root_url %>collections with the request body:
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;DescribeRecord xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 csw.xsd&quot;
+ xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+ service=&quot;CSW&quot; version=&quot;2.0.2&quot; outputFormat=&quot;application/xml&quot;
+ schemaLanguage=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;TypeName&gt;csw:Record&lt;/TypeName&gt;
+&lt;/DescribeRecord&gt;</code></pre>
+    </li>
+    </br>
+    <li>GET Retrieve ALL supported output schemas <span class="emphasis">http://www.opengis.net/cat/csw/2.0.2</span> through
+      their respective namespaces elements:
+      <a target="_blank" href="<%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(csw=http://www.opengis.net/cat/csw/2.0.2),xmlns(gmi=http://www.isotc211.org/2005/gmi,xmlns(gmd=http://www.isotc211.org/2005/gmd)">GET <%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(csw=http://www.opengis.net/cat/csw/2.0.2),xmlns(gmi=http://www.isotc211.org/2005/gmi,xmlns(gmd=http://www.isotc211.org/2005/gmd)</a>
+    </li>
+    <li>Retrieve the same schemas via their respective TypeName <span class="emphasis">csw:Record gmi:MI_Metadata gmd:MD_Metadata</span> through a POST to <%= root_url %>collections with the request body:
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;DescribeRecord xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 csw.xsd&quot;
+ xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+ service=&quot;CSW&quot; version=&quot;2.0.2&quot; outputFormat=&quot;application/xml&quot;
+ schemaLanguage=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;TypeName&gt;csw:Record&lt;/TypeName&gt;
+    &lt;TypeName&gt;gmi:MI_Metadata&lt;/TypeName&gt;
+    &lt;TypeName&gt;gmd:MD_Metadata&lt;/TypeName&gt;
+&lt;/DescribeRecord&gt;</code></pre>
+    </li>
+    </br>
+    <li>GET Retrieve the supported gmi output schema through its respective namespace and TypeName element:
+      <a target="_blank" href="<%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(gmi=http://www.isotc211.org/2005/gmi)&TypeName=gmi:MI_Metadata">GET <%= root_url %>collections?request=DescribeRecord&service=CSW&version=2.0.2&NAMESPACE=xmlns(gmi=http://www.isotc211.org/2005/gmi)&TypeName=gmi:MI_Metadata</a>
+    </li>
+    <li>Retrieve the same schema via its TypeName <span class="emphasis">gmi:MI_Metadata</span> a POST to <%= root_url %>collections with the request body:
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;DescribeRecord xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xsi:schemaLocation=&quot;http://www.opengis.net/cat/csw/2.0.2 csw.xsd&quot;
+ xmlns=&quot;http://www.opengis.net/cat/csw/2.0.2&quot; xmlns:csw=&quot;http://www.opengis.net/cat/csw/2.0.2&quot;
+ service=&quot;CSW&quot; version=&quot;2.0.2&quot; outputFormat=&quot;application/xml&quot;
+ schemaLanguage=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;TypeName&gt;gmi:MI_Metadata&lt;/TypeName&gt;
+&lt;/DescribeRecord&gt;</code></pre>
+    </li>
+    </br>
+  </ul>
+</section>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:Capabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:gml="http://www.opengis.net/gml" xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd" version="2.0.2">
+	<ows:ServiceIdentification>
+		<ows:Title>NASA Earthdata's Common Metadata Repository (CMR) CSW Service</ows:Title>
+		<ows:Abstract>NASA Earthdata's CMR contributes to GEOSS by offering a web service that utilizes
+            the Catalogue Service for the Web (CSW) protocol. This service provides GEOSS with
+            the capability to perform dynamic queries of NASA’s Earth Science metadata collection.
+            The CSW service is registered within the GEOSS registry system, which allows NASA’s
+            metadata to be fully searchable within the GEOSS portal. In addition, as a service to
+            the Group on Earth Observations (GEO), CMR CSW has also made US GEO and Committee on
+            Earth Observation Satellites (CEOS) members’ metadata collections available to GEOSS
+            from the CSW service.</ows:Abstract>
+		<ows:Keywords>
+		  <ows:Keyword>NASA</ows:Keyword>
+		  <ows:Keyword>NOAA</ows:Keyword>
+			<ows:Keyword>CEOS</ows:Keyword>
+			<ows:Keyword>GEOSS</ows:Keyword>
+		</ows:Keywords>
+		<ows:ServiceType>CSW</ows:ServiceType>
+		<ows:ServiceTypeVersion>2.0.2</ows:ServiceTypeVersion>
+	</ows:ServiceIdentification>
+
+	<ows:ServiceProvider>
+		<ows:ProviderName>NASA Earthdata</ows:ProviderName>
+		<ows:ProviderSite xlink:href="http://www.earthdata.nasa.gov"/>
+		<ows:ServiceContact>
+			<ows:IndividualName>Stephen W. Berrick</ows:IndividualName>
+			<ows:PositionName>Responsible NASA Official</ows:PositionName>
+			<ows:ContactInfo>
+				<ows:Phone>
+					<ows:Voice>301-614-5924</ows:Voice>
+				</ows:Phone>
+				<ows:Address>
+					<ows:DeliveryPoint>Mailstop: Code 423.0, NASA/Goddard Space Flight Center</ows:DeliveryPoint>
+					<ows:City>Greenbelt</ows:City>
+					<ows:AdministrativeArea>Maryland</ows:AdministrativeArea>
+					<ows:PostalCode>20771</ows:PostalCode>
+					<ows:Country>USA</ows:Country>
+					<ows:ElectronicMailAddress>stephen.w.berrick@nasa.gov</ows:ElectronicMailAddress>
+				</ows:Address>
+			</ows:ContactInfo>
+			<ows:Role>Responsible NASA Official</ows:Role>
+		</ows:ServiceContact>
+	</ows:ServiceProvider>
+
+	<ows:OperationsMetadata>
+
+		<ows:Operation name="GetCapabilities">
+			<ows:DCP>
+				<ows:HTTP>
+					<% GetCapability::HTTP_METHODS.each do |method| %>
+					<ows:<%= method %> xlink:href="<%= root_url %>collections">
+					  <% if method == 'Post' %>
+					  <ows:Constraint name="PostEncoding">
+					    <ows:Value>XML</ows:Value>
+					  </ows:Constraint>
+					  <% end %>
+					  </ows:<%= method %> >
+					 <% end %>
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="sections">
+				<ows:Value>ServiceIdentification</ows:Value>
+				<ows:Value>ServiceProvider</ows:Value>
+				<ows:Value>OperationsMetadata</ows:Value>
+				<ows:Value>Filter_Capabilities</ows:Value>
+			</ows:Parameter>
+		</ows:Operation>
+
+		<ows:Operation name="GetRecords">
+			<ows:DCP>
+				<ows:HTTP>
+					<% GetRecords::HTTP_METHODS.each do |method| %>
+					<ows:<%= method %> xlink:href="<%= root_url %>collections">
+						<% if method == 'Post' %>
+						<ows:Constraint name="PostEncoding">
+						  <ows:Value>XML</ows:Value>
+						</ows:Constraint>
+					  <% end %>
+					</ows:<%= method %> >
+				  <% end %>
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="ElementSetName">
+			<% GetRecords::RESPONSE_ELEMENTS.each do |type| %>
+			  <ows:Value><%= type %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="resultType">
+			<% GetRecords::RESULT_TYPES.each do |type| %>
+			  <ows:Value><%= type %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="outputFormat">
+			<% GetRecords::OUTPUT_FILE_FORMATS.each do |format| %>
+			  <ows:Value><%= format %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="outputSchema">
+			<% GetRecords::OUTPUT_SCHEMAS.each do |schema| %>
+			  <ows:Value><%= schema %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="typeNames">
+			<% GetRecords::TYPE_NAMES.each do |schema| %>
+			  <ows:Value><%= schema %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="CONSTRAINTLANGUAGE">
+				<ows:Value>FILTER</ows:Value>
+			</ows:Parameter>
+			<ows:Constraint name="SupportedISOQueryables">
+			<% ISO_QUERYABLES_TO_CMR_QUERYABLES.each_pair do |key, value| %>
+			  <ows:Value><%= key %></ows:Value>
+			<% end %>
+			</ows:Constraint>
+			<ows:Constraint name="AdditionalQueryables">
+			<% ADDITIONAL_QUERYABLES_TO_CMR_QUERYABLES.each_pair do |key, value| %>
+			  <ows:Value><%= key %></ows:Value>
+			<% end %>
+			</ows:Constraint>
+		</ows:Operation>
+
+		<ows:Operation name="GetRecordById">
+			<ows:DCP>
+		    <ows:HTTP>
+				<% GetRecordById::HTTP_METHODS.each do |method| %>
+				  <ows:<%= method %> xlink:href="<%= root_url %>collections">
+					<% if method == 'Post' %>
+					  <ows:Constraint name="PostEncoding">
+						  <ows:Value>XML</ows:Value>
+						</ows:Constraint>
+					<% end %>
+					</ows:<%= method %> >
+				<% end %>
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="ElementSetName">
+			<% GetRecordById::RESPONSE_ELEMENTS.each do |type| %>
+			  <ows:Value><%= type %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="outputFormat">
+			<% GetRecordById::OUTPUT_FILE_FORMATS.each do |format| %>
+			  <ows:Value><%= format %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+			<ows:Parameter name="outputSchema">
+			<% GetRecordById::OUTPUT_SCHEMAS.each do |schema| %>
+			  <ows:Value><%= schema %></ows:Value>
+			<% end %>
+			</ows:Parameter>
+		</ows:Operation>
+
+		<ows:Parameter name="service">
+			<ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
+		</ows:Parameter>
+		<ows:Parameter name="version">
+			<ows:Value>2.0.2</ows:Value>
+		</ows:Parameter>
+		<ows:Constraint name="IsoProfiles">
+		<% GetCapability::OUTPUT_SCHEMAS.each do |schema| %>
+		  <% if schema.upcase.include? 'ISO' %>
+		  <ows:Value><%= schema %></ows:Value>
+		  <% end %>
+		<% end %>
+		</ows:Constraint>
+
+	</ows:OperationsMetadata>
+
+	<ogc:Filter_Capabilities>
+		<ogc:Spatial_Capabilities>
+			<ogc:GeometryOperands>
+				<ogc:GeometryOperand>gml:Envelope</ogc:GeometryOperand>
+			  <!-- Coordinates are specified in CMR order as: <gml:pos>LON LAT</gml:pos> -->
+				<ogc:GeometryOperand>gml:Point</ogc:GeometryOperand>
+				<!-- Coordinates are specified in CMR order as: <gml:posList>LON1 LAT1 LON2 LAT2 ... LONn LATn</gml:posList> -->
+				<ogc:GeometryOperand>gml:LineString</ogc:GeometryOperand>
+				<!-- Coordinates are specified in CMR order as:
+				<gml:posList>LON1 LAT1 LON2 LAT2 ... LONn LATn LON1 LAT1</gml:posList> -->
+				<ogc:GeometryOperand>gml:Polygon</ogc:GeometryOperand>
+			</ogc:GeometryOperands>
+			<ogc:SpatialOperators>
+				<ogc:SpatialOperator name="BBOX" />
+				<ogc:SpatialOperator name="Overlaps" />
+				<ogc:SpatialOperator name="Intersects" />
+				<ogc:SpatialOperator name="Touches" />
+				<ogc:SpatialOperator name="Crosses" />
+			</ogc:SpatialOperators>
+		</ogc:Spatial_Capabilities>
+		<ogc:Scalar_Capabilities>
+			<ogc:LogicalOperators/>
+			<ogc:ComparisonOperators>
+				<ogc:ComparisonOperator>EqualTo</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>Like</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>LessThan</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>GreaterThan</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>LessThanEqualTo</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>GreaterThanEqualTo</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>NotEqualTo</ogc:ComparisonOperator>
+				<ogc:ComparisonOperator>Between</ogc:ComparisonOperator>
+			</ogc:ComparisonOperators>
+		</ogc:Scalar_Capabilities>
+		<ogc:Id_Capabilities>
+			<ogc:EID/>
+			<ogc:FID/>
+		</ogc:Id_Capabilities>
+	</ogc:Filter_Capabilities>
+
+</csw:Capabilities>

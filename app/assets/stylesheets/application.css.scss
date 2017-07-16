@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree
+ */
+footer {
+  background-color: rgb(44, 62, 80);
+}
+
+.masthead-logo {
+  span.hide-text {
+    visibility: hidden;
+  }
+
+  a:link {
+    background-image: url(earthdata-logo.png);
+  }
+
+  a:hover {
+    background-image: url(earthdata-logo-hover.png);
+  }
+}
+
+section.hero {
+  padding-top: 0em;
+  height: 150px;
+  color: #ffffff;
+  text-align: center;
+  background-color: rgb(44, 62, 80);
+  a:link, a:visited
+  {
+    color: #ffffff;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+  }
+  h1 {
+    font-size: 64px;
+  }
+}
+
+span.emphasis {
+  font-weight: bold;
+}

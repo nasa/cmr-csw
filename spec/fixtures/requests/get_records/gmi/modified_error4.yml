@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cmr.earthdata.nasa.gov/search/collections?include_tags=org.ceos.wgiss.cwic.granules.prod,org.geoss.geoss_data-core&updated_since=200015-04-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/iso19115+xml
+      Accept-Encoding:
+      - gzip, deflate
+      Client-Id:
+      - cmr_csw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 13 May 2016 12:08:28 GMT
+      Content-Type:
+      - application/xml; charset=ISO-8859-1
+      Access-Control-Allow-Origin:
+      - "*"
+      Cmr-Request-Id:
+      - 0cbcef35-2bac-4427-9b09-6fd9f7e5257c
+      Content-Length:
+      - '144'
+      Server:
+      - Jetty(9.2.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: '<?xml version="1.0" encoding="UTF-8"?><errors><error>updated_since
+        datetime is invalid: [200015-04-01] is not a valid datetime.</error></errors>'
+    http_version: 
+  recorded_at: Fri, 13 May 2016 12:08:28 GMT
+recorded_with: VCR 3.0.1

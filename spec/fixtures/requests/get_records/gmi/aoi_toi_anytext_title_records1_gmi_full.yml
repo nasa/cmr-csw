@@ -1,0 +1,1021 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cmr.earthdata.nasa.gov/search/collections?bounding_box=-180,-90,180,90&entry_title=*MODIS*&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geoss.geoss_data-core&options%5Bentry_title%5D%5Bpattern%5D=true&temporal%5B%5D=1990-09-03T00:00:01Z/2008-09-06T23:59:59Z
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/iso19115+xml
+      Accept-Encoding:
+      - gzip, deflate
+      Client-Id:
+      - cmr_csw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 24 Apr 2016 11:44:00 GMT
+      Content-Type:
+      - application/iso19115+xml; charset=utf-8
+      Access-Control-Expose-Headers:
+      - CMR-Hits, CMR-Request-Id
+      Access-Control-Allow-Origin:
+      - "*"
+      Cmr-Hits:
+      - '672'
+      Cmr-Took:
+      - '122'
+      Cmr-Request-Id:
+      - 4951a7b9-11a9-4f4e-bae4-dcdd48ccc5c4
+      Vary:
+      - Accept-Encoding, User-Agent
+      Content-Length:
+      - '154542'
+      Server:
+      - Jetty(9.2.z-SNAPSHOT)
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><results><hits>672</hits><took>119</took><result
+        concept-id=\"C1224520058-NOAA_NCEI\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>\nGHRSST
+        Level 2P Global Skin Sea Surface Temperature from the Moderate Resolution
+        Imaging Spectroradiometer (MODIS) on the NASA Aqua satellite\n</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2013-09-10T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>JPL-L2P-MODIS_A
+        &gt; \nGHRSST Level 2P Global Skin Sea Surface Temperature from the Moderate
+        Resolution Imaging Spectroradiometer (MODIS) on the NASA Aqua satellite\n</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2012-11-01T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>1.0</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>JPL-L2P-MODIS_A</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>\nGHRSST
+        Level 2P Global Skin Sea Surface Temperature from the Moderate Resolution
+        Imaging Spectroradiometer (MODIS) on the NASA Aqua satellite\n</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>\nThe
+        Moderate-resolution Imaging Spectroradiometer (MODIS) is a scientific instrument
+        (radiometer) launched by NASA in 2002 on board the Aqua satellite platform
+        (a second series is on the Terra platform) to study global dynamics of the
+        Earths atmosphere, land and oceans. MODIS captures data in 36 spectral bands
+        ranging in wavelength from 0.4 um to 14.4 um and at varying spatial resolutions
+        (2 bands at 250 m, 5 bands at 500 m and 29 bands at 1 km). For the sea surface
+        temperature (SST) products from this radiometer channels in the 4, 11 and
+        12 um spectrum are used. The Aqua platform is in a sun synchronous, near polar
+        orbit at 705 km altitude and the MODIS instrument images the entire Earth
+        every 1 to 2 days. The production of the MODIS L2P SST data as part of the
+        Group for High Resolution Sea Surface Temperature (GHRSST) is a joint collaboration
+        between the NASA Jet Propulsion Laboratory (JPL), the NASA Ocean Biology Processing
+        Group (OBPG), and the Rosenstiel School of Marine and Atmospheric Science
+        (RSMAS). RSMAS is responsible for sea surface temperature algorithm development,
+        error statistics and quality flagging, while the OBPG is NASA ground data
+        system for production of daily MODIS ocean products in HDF file format. JPL
+        acquires MODIS ocean granules from the OBPG in near realtime and reformats
+        them to the GHRSST L2P netCDF specification with complete metadata. Data consists
+        of global coverage at 1 km resolution with approximately 300+ five minute
+        observation granules per day. For nighttime data both SST from the 11-12 um,
+        and 4 um bands are available. Ocean chlorophyll a and K490 diffuse attenuation
+        coefficient data are also available for daytime periods as non standard L2P
+        core fields. Note that these ocean color data do not represent the most recent
+        version processed by the OBPG and may not be of research quality.\n</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;OCEANS&gt;OCEAN TEMPERATURE&gt;SEA SURFACE TEMPERATURE&gt;NONE&gt;NONE&gt;SKIN
+        SEA SURFACE TEMPERATURE (SSTSKIN)</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>CWIC
+        &gt; CEOS WGISS Integrated Catalog</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>GHRSST
+        &gt; Group for High Resolution Sea Surface Temperature</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AQUA
+        &gt; Earth Observing System, AQUA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>None</gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-9e265c1f-58c3-4aa7-8124-a8656fdd1a61\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-9694df55-fa85-42bb-92e4-ee7f0817d059\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"da68d1ace-94b1-4c3b-93a7-0232a2f67bc8\"><gml:beginPosition>2006-06-30T00:00:00.000Z</gml:beginPosition><gml:endPosition></gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>Kenneth.Casey@noaa.gov</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://data.nodc.noaa.gov/thredds/catalog/ghrsst/L2P/MODIS_A/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nData
+        may be directly downloaded from the NODC via the THREDDS (Thematic Real-time
+        Environmental Distributed Data Services) server at the URL listed in this
+        metadata record. For more information see the NODC GHRSST project web site:
+        URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://data.nodc.noaa.gov/opendap/ghrsst/L2P/MODIS_A/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nThese
+        data are also served using OPeNDAP (formerly DODS) server. The base URL is:
+        http://data.nodc.noaa.gov/opendap/ghrsst/. For more information see the NODC
+        GHRSST project web site: URL:http://ghrsst.nodc.noaa.gov/. For a listing of
+        OPeNDAP clients which may be used to access OPeNDAP-enabled data sets, please
+        see the OPeNDAP web site at URL: http://opendap.org/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nftp://ftp.nodc.noaa.gov/pub/data.nodc/ghrsst/L2P/MODIS_A/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nDirect
+        FTP access: Navigate to ftp://ftp.nodc.noaa.gov/pub/data.nodc/ghrsst using
+        any FTP client to begin downloading data. For more information see the NODC
+        GHRSST project web site: URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://data.nodc.noaa.gov/ghrsst/L2P/MODIS_A/JPL/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nSimple
+        Web access: Using any web browser, navigate to URL: http://data.nodc.noaa.gov/ghrsst
+        and begin browsing through the file hierarchy. Clicking on any of the files
+        will prompt you to download that file or will launch any application associated
+        with netCDF files. For more information see the NODC GHRSST project web site:
+        URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.nodc.noaa.gov/Archive/Search/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nData
+        may be directly downloaded through the NODC Ocean Archive System at: URL:
+        http://www.nodc.noaa.gov/Archive/Search/. NODC can be contacted directly for
+        custom orders. (When requesting data from the NODC, a data set may be referred
+        to by a 7-digit accession number assigned to individual data sets, see the
+        NODC Ocean Archive System at http://www.nodc.noaa.gov/Archive/Search/.) For
+        more information see the NODC GHRSST project web site: URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nInformation
+        on the the MODIS SST algorithm can be found in the following documents: http://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf
+        and http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nInformation
+        on the the MODIS SST algorithm can be found in the following documents: http://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf
+        and http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"dd2c5c26c-118a-4f8e-9c93-41e3867b74a4\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d10f0f784-bf42-4ed1-a09b-740321dcf152\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>CWIC
+        &gt; CEOS WGISS Integrated Catalog</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CWIC</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>GHRSST
+        &gt; Group for High Resolution Sea Surface Temperature</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>GHRSST</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d10f0f784-bf42-4ed1-a09b-740321dcf152\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AQUA</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Earth
+        Observing System, AQUA</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#dd2c5c26c-118a-4f8e-9c93-41e3867b74a4\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1224520120-NOAA_NCEI\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>\nGHRSST
+        Level 2P Global Skin Sea Surface Temperature from the Moderate Resolution
+        Imaging Spectroradiometer (MODIS) on the NASA Terra satellite\n</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2013-09-10T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>JPL-L2P-MODIS_T
+        &gt; \nGHRSST Level 2P Global Skin Sea Surface Temperature from the Moderate
+        Resolution Imaging Spectroradiometer (MODIS) on the NASA Terra satellite\n</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2012-11-01T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>1.0</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>JPL-L2P-MODIS_T</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>\nGHRSST
+        Level 2P Global Skin Sea Surface Temperature from the Moderate Resolution
+        Imaging Spectroradiometer (MODIS) on the NASA Terra satellite\n</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>\nThe
+        Moderate-resolution Imaging Spectroradiometer (MODIS) is a scientific instrument
+        (radiometer) launched by NASA in 1999 on board the Terra satellite platform
+        (a second series is on the Aqua platform) to study global dynamics of the
+        Earths atmosphere, land and oceans. MODIS captures data in 36 spectral bands
+        ranging in wavelength from 0.4 um to 14.4 um and at varying spatial resolutions
+        (2 bands at 250 m, 5 bands at 500 m and 29 bands at 1 km). For the sea surface
+        temperature (SST) products from this radiometer channels in the 4, 11 and
+        12 um spectrum are used. The Terra platform is in a sun synchronous, near
+        polar orbit at 705 km altitude and the MODIS instrument images the entire
+        Earth every 1 to 2 days. The production of the MODIS L2P SST data as part
+        of the Group for High Resolution Sea Surface Temperature (GHRSST) is a joint
+        collaboration between the NASA Jet Propulsion Laboratory (JPL), the NASA Ocean
+        Biology Processing Group (OBPG), and the Rosenstiel School of Marine and Atmospheric
+        Science (RSMAS). RSMAS is responsible for sea surface temperature algorithm
+        development, error statistics and quality flagging, while the OBPG is NASA
+        ground data system for production of daily MODIS ocean products in HDF file
+        format. JPL acquires MODIS ocean granules from the OBPG in near realtime and
+        reformats them to the GHRSST L2P netCDF specification with complete metadata.
+        Data consists of global coverage at 1 km resolution with approximately 300+
+        five minute observation granules per day. For nighttime data both SST from
+        the 11-12 um, and 4 um bands are available. Ocean chlorophyll a and K490 diffuse
+        attenuation coefficient data are also available for daytime periods as non
+        standard L2P core fields. Note that these ocean color data do not represent
+        the most recent version processed by the OBPG and may not be of research quality.\n</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;OCEANS&gt;OCEAN TEMPERATURE&gt;SEA SURFACE TEMPERATURE&gt;NONE&gt;NONE&gt;SKIN
+        SEA SURFACE TEMPERATURE (SSTSKIN)</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>GHRSST
+        &gt; Group for High Resolution Sea Surface Temperature</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>CWIC
+        &gt; CEOS WGISS Integrated Catalog</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>TERRA
+        &gt; Earth Observing System, TERRA (AM-1)</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>None</gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-8dc6a280-6a13-4308-996a-81b8f8bbdb00\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-43b71afd-4af5-4865-b435-4d605e4153d7\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"de3c01e60-25a1-4d64-affa-0f9c39ef593e\"><gml:beginPosition>2006-10-01T00:00:00.000Z</gml:beginPosition><gml:endPosition></gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>Kenneth.Casey@noaa.gov</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://data.nodc.noaa.gov/thredds/catalog/ghrsst/L2P/MODIS_T/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nData
+        may be directly downloaded from the NODC via the THREDDS (Thematic Real-time
+        Environmental Distributed Data Services) server at the URL listed in this
+        metadata record. For more information see the NODC GHRSST project web site:
+        URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://data.nodc.noaa.gov/opendap/ghrsst/L2P/MODIS_T/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nThese
+        data are also served using OPeNDAP (formerly DODS) server. The base URL is:
+        http://data.nodc.noaa.gov/opendap/ghrsst/. For more information see the NODC
+        GHRSST project web site: URL:http://ghrsst.nodc.noaa.gov/. For a listing of
+        OPeNDAP clients which may be used to access OPeNDAP-enabled data sets, please
+        see the OPeNDAP web site at URL: http://opendap.org/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nftp://ftp.nodc.noaa.gov/pub/data.nodc/ghrsst/L2P/MODIS_T/JPL/\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nDirect
+        FTP access: Navigate to ftp://ftp.nodc.noaa.gov/pub/data.nodc/ghrsst using
+        any FTP client to begin downloading data. For more information see the NODC
+        GHRSST project web site: URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://data.nodc.noaa.gov/ghrsst/L2P/MODIS_T/JPL/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nSimple
+        Web access: Using any web browser, navigate to URL: http://data.nodc.noaa.gov/ghrsst
+        and begin browsing through the file hierarchy. Clicking on any of the files
+        will prompt you to download that file or will launch any application associated
+        with netCDF files. For more information see the NODC GHRSST project web site:
+        URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.nodc.noaa.gov/Archive/Search/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nData
+        may be directly downloaded through the NODC Ocean Archive System at: URL:
+        http://www.nodc.noaa.gov/Archive/Search/. NODC can be contacted directly for
+        custom orders. (When requesting data from the NODC, a data set may be referred
+        to by a 7-digit accession number assigned to individual data sets, see the
+        NODC Ocean Archive System at http://www.nodc.noaa.gov/Archive/Search/.) For
+        more information see the NODC GHRSST project web site: URL: http://ghrsst.nodc.noaa.gov/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>\nhttp://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf\n</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nInformation
+        on the the MODIS SST algorithm can be found in the following documents: http://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf
+        and http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\nInformation
+        on the the MODIS SST algorithm can be found in the following documents: http://modis.gsfc.nasa.gov/data/atbd/atbd_mod25.pdf
+        and http://oceancolor.gsfc.nasa.gov/DOCS/modis_sst/\n</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"df88b3127-7081-4295-8dc3-72c3332c8e6a\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d2e1de475-8eeb-4f4a-a192-b65472016679\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>GHRSST
+        &gt; Group for High Resolution Sea Surface Temperature</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>GHRSST</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>CWIC
+        &gt; CEOS WGISS Integrated Catalog</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CWIC</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d2e1de475-8eeb-4f4a-a192-b65472016679\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>TERRA</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Earth
+        Observing System, TERRA (AM-1)</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#df88b3127-7081-4295-8dc3-72c3332c8e6a\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1225368283-LAADS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>Aerosol
+        Ratio Small MODIS L2 (TERRA Browse Product)</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2010-09-22T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MOBARS
+        &gt; Aerosol Ratio Small MODIS L2 (TERRA Browse Product)</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2006-06-27T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>5</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MOBARS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Aerosol
+        Ratio Small MODIS L2 (TERRA Browse Product)</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>This
+        is browse product: \"Aerosol Ratio Small MODIS L2\" \n      \n      Data set
+        information: \n      http://modis-atmos.gsfc.nasa.gov/\n      \n      [placeholder
+        metadata]</gco:CharacterString></gmd:abstract><gmd:purpose gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;ATMOSPHERE&gt;AEROSOLS&gt;AEROSOL OPTICAL DEPTH/THICKNESS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>NASA/GSFC/SED/ESD/HBSL/BISB/LAADS</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"dataCenter\">dataCenter</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EOS
+        &gt; Earth Observing System</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EOSDIS
+        &gt; Earth Observing System Data Information System</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>TERRA
+        &gt; Earth Observing System (EOS), TERRA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>TERRA
+        &gt; Earth Observing System, TERRA (AM-1)</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString></gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-e370f7d9-0565-498e-9717-4522acf4dc54\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-e9ee2c58-85bc-4cce-85a7-813c3c4d63d3\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-180.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>180.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-90.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>90.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d645e3a12-3f35-474a-9652-8d26251c2104\"><gml:beginPosition>2000-02-25T00:00:00.000Z</gml:beginPosition><gml:endPosition>2000-12-05T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString>NASA/GSFC/SED/ESD/HBSL/BISB/LAADS</gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>MODAPSUSO@lists.nasa.gov</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://ladsftp.nascom.nasa.gov/allData/5/MOBARS/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Access data set MOBARS from the LAADS FTP server.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://ladsweb.nascom.nasa.gov/browse_images/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Visually browse MODIS level 1 and atmosphere data products. \n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://modis.gsfc.nasa.gov/sci_team/</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        MODIS Science Team \n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://modis-atmos.gsfc.nasa.gov/</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        MODIS Atmosphere Team\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://mcst.gsfc.nasa.gov/</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        MODIS Characterization Support Team (MCST).\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://ladsftp.nascom.nasa.gov/README</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Readme regarding accessing MODIS data from the LAADS FTP server.
+        \n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://ladsweb.nascom.nasa.gov/data/availability.html
+        </gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        View MODIS data availability. \n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://ladsweb.nascom.nasa.gov/data/search.html
+        </gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Web site for MODIS Collection 5 L1B, Geo and atmosphere data ordering.\n
+        \        Web site for MODIS Collection 4 atmosphere data ordering.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://modaps.nascom.nasa.gov</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Web site for MODIS Collection 4 L1B and Geo data ordering.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"d1f67c6b4-63c6-4654-a4d0-1756404a1d3e\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d8472b282-95de-4b75-9326-db3463e2feef\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:instrument><gmi:MI_Instrument
+        id=\"d97b12c74-61f5-4236-b43e-61619da4d1bb\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:title><gmd:date gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString></gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d83ab7949-7c46-4dd0-b7fd-dbe1579d4d81\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>EOS
+        &gt; Earth Observing System</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>EOS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>EOSDIS
+        &gt; Earth Observing System Data Information System</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>EOSDIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>TERRA
+        &gt; Earth Observing System (EOS), TERRA</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>TERRA</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d8472b282-95de-4b75-9326-db3463e2feef\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString></gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d1f67c6b4-63c6-4654-a4d0-1756404a1d3e\"></gmi:instrument></eos:EOS_Platform></gmi:platform><gmi:platform><eos:EOS_Platform
+        id=\"d83ab7949-7c46-4dd0-b7fd-dbe1579d4d81\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>TERRA</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Earth
+        Observing System, TERRA (AM-1)</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d97b12c74-61f5-4236-b43e-61619da4d1bb\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604712-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Albedo, 2012 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_ALB2012
+        &gt; AfSIS MODIS Collection: Albedo, 2012 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2012.00</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_ALB2012</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Albedo, 2012 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Albedo data set contains rasters with the following calculations:
+        time series average, time series standard deviation, and time series variance
+        for white sky and black sky albedo. These Africa continent-wide calculations
+        use surface reflectance data obtained by the National Aeronautics and Space
+        Administration (NASA) MODIS MCD43A3 product. The rasters have a 16-day temporal
+        resolution, a spatial resolution of 500 meters, and are updated annually by
+        AfSIS using data provided by the U.S. Geological Survey (USGS) Land Processes
+        Distributed Active Archive Center (LPDAAC) Data Pool at https://lpdaac.usgs.gov.\n\n
+        The data are available in Geographic Tagged Image File Format (GeoTIFF) from
+        the Africa Soil Information Service (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing albedo data for the continent of
+        Africa that can be used to predict soil properties as well as for a range
+        of other applications, including erosion and landslide risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;LAND SURFACE&gt;SURFACE RADIATIVE PROPERTIES&gt;ALBEDO&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 2012. AfSIS MODIS
+        Collection: Albedo, 2012 Release. Palisades, NY: Center for International
+        Earth Science Information Network (CIESIN), Columbia University. ftp://africagrids.net/500m/MCD43A3/.
+        Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-0a23a91d-31d1-4851-93bb-f7c0d37c789d\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-2044b5a8-d58d-4096-b25a-c90d0f7ee602\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"de205e520-376c-4975-945b-434470d6432c\"><gml:beginPosition>2000-02-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2012-06-30T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/500m/MCD43A3/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"dcef98966-f07c-4506-b430-8405986d8bee\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#db6a81083-1419-45ea-9e4d-a7b6a699b3b0\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"db6a81083-1419-45ea-9e4d-a7b6a699b3b0\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#dcef98966-f07c-4506-b430-8405986d8bee\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604713-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Land Cover Type, 2012 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_LCT2012
+        &gt; AfSIS MODIS Collection: Land Cover Type, 2012 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2012.00</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_LCT2012</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Land Cover Type, 2012 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Land Cover Type 2 data set is constructed for the continent
+        of Africa using observations from the National Aeronautics and Space Administration
+        (NASA) MODIS MCD12Q1 product. The grids have an annual temporal resolution,
+        a spatial resolution of 500 meters, and are updated annually by AfSIS using
+        data provided by the U.S. Geological Survey (USGS) Land Processes Distributed
+        Active Archive Center (LPDAAC) Data Pool at https://lpdaac.usgs.gov.\n\n The
+        data are available in Geographic Tagged Image File Format (GeoTIFF) from the
+        Africa Soil Information Service (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing land cover data for the continent
+        of Africa that can be used to predict soil properties as well as for a range
+        of other applications, including erosion and landslide risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;ECOLOGICAL DYNAMICS&gt;ECOSYSTEM FUNCTIONS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;VEGETATION&gt;VEGETATION COVER&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 2012. AfSIS MODIS
+        Collection: Land Cover Type, 2012 Release. Palisades, NY: Center for International
+        Earth Science Information Network (CIESIN), Columbia University. ftp://africagrids.net/500m/MCD12Q1/.
+        Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-0b33dcfc-be68-4528-bf37-5875be0508c0\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-d08c8eb9-841f-4831-8eca-345f6608c5b5\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d694d92b3-8c0d-473c-aa50-c8485efa8cce\"><gml:beginPosition>2001-01-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2009-12-31T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/500m/MCD12Q1/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"dd8ee1740-2b93-4177-8959-cbcccf1fb092\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d26f01032-4984-4c9a-a5cd-772426847ee2\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d26f01032-4984-4c9a-a5cd-772426847ee2\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#dd8ee1740-2b93-4177-8959-cbcccf1fb092\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604721-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Land Surface Temperature, April 2014 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_LST201404
+        &gt; AfSIS MODIS Collection: Land Surface Temperature, April 2014 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2014.04</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_LST201404</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Land Surface Temperature, April 2014 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Land Surface Temperature data set contains rasters with
+        the following calculations: time series average and time series monthly averages
+        for day and night. These Africa continent-wide calculations use observations
+        from the National Aeronautics and Space Administration (NASA) MODIS MYD11A2
+        product. The rasters have an 8-day temporal resolution, a spatial resolution
+        of 1 kilometer, and are updated quarterly by AfSIS using data provided by
+        the Columbia University International Research Institute for Climate and Society
+        (IRI) at http://iridl.ldeo.columbia.edu.\n\n The data are available in Geographic
+        Tagged Image File Format (GeoTIFF) from the Africa Soil Information Service
+        (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing land cover data for the continent
+        of Africa that can be used to predict soil properties as well as for a range
+        of other applications, including erosion and landslide risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;LAND SURFACE&gt;SURFACE THERMAL PROPERTIES&gt;LAND SURFACE TEMPERATURE&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 201404. AfSIS MODIS
+        Collection: Land Surface Temperature, April 2014 Release. Palisades, NY: Center
+        for International Earth Science Information Network (CIESIN), Columbia University.
+        ftp://africagrids.net/1000m/MYD11A2/.Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-ea23184c-5cf7-49a1-a874-2484b4bb6aae\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-6daad76d-205a-463f-a00d-82e8c09236b2\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"dc74b8650-1efb-4930-9c70-2034cb0d0deb\"><gml:beginPosition>2002-07-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2014-03-31T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/1000m/MYD11A2/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"d53ab053c-ce6d-4a32-90f5-b48d73202aa8\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d7dcb8f4b-03f8-4800-971c-0a426f8e8bcd\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d7dcb8f4b-03f8-4800-971c-0a426f8e8bcd\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d53ab053c-ce6d-4a32-90f5-b48d73202aa8\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604716-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Leaf Area Index - FPAR, 2012 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_LAIFPAR2012
+        &gt; AfSIS MODIS Collection: Leaf Area Index - FPAR, 2012 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2012.00</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_LAIFPAR2012</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Leaf Area Index - FPAR, 2012 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Leaf Area Index (LAI) and Fraction of Photosynthetically
+        Active Radiation (FPAR) data sets contain rasters with the following calculations:
+        time series average, time series standard deviation, and time series variance
+        for LAI and FPAR. These Africa continent-wide calculations for surface photosynthesis
+        use observations from the National Aeronautics and Space Administration (NASA)
+        MODIS MCD43A3 product. The rasters have a 8-day temporal resolution, a spatial
+        resolution of 1 kilometer, and are updated annually by AfSIS using data provided
+        by the U.S. Geological Survey (USGS) Land Processes Distributed Active Archive
+        Center (LPDAAC) Data Pool at https://lpdaac.usgs.gov.\n\n The data are available
+        in Geographic Tagged Image File Format (GeoTIFF) from the Africa Soil Information
+        Service (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing a measure for leaf area and radiactive
+        photosynthetic absorption for the continent of Africa that can be used to
+        predict soil properties as well as for a range of other applications, including
+        erosion and landslide risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;ECOLOGICAL DYNAMICS&gt;ECOSYSTEM FUNCTIONS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;VEGETATION&gt;VEGETATION COVER&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 2012. AfSIS MODIS
+        Collection: Leaf Area Index - FPAR, 2012 Release. Palisades, NY: Center for
+        International Earth Science Information Network (CIESIN), Columbia University.
+        ftp://africagrids.net/1000m/MOD15A2. Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-f91fdbe7-b23d-4f28-8ec7-9bf23d250cba\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-7fb55817-9de9-41f6-8eaf-52bb453c031a\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d6ba4e86d-acbc-4c7f-b233-642a6c91272b\"><gml:beginPosition>2000-02-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2012-06-30T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/1000m/MOD15A2/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"d2b9eca05-871c-4c2d-a5fe-a3b7149d6566\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d8bd612d6-6d04-44af-8fdb-e31741550d49\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d8bd612d6-6d04-44af-8fdb-e31741550d49\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d2b9eca05-871c-4c2d-a5fe-a3b7149d6566\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604723-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Primary Productivity, 2012 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_PP2012
+        &gt; AfSIS MODIS Collection: Primary Productivity, 2012 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2014.00</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_PP2012</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Primary Productivity, 2012 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Primary Productivity data set contains rasters with the
+        following calculations: time series average, time series variance, and annual
+        averages for Net Primary Productivity (NPP) and Gross Primary Productivity
+        (GPP). These Africa continent-wide calculations for vegetation productivity
+        use observations from the National Aeronautics and Space Administration (NASA)
+        MODIS MOD17A3 product. The rasters have a annual temporal resolution, a spatial
+        resolution of 1 kilometer, and are updated annually by AfSIS using data provided
+        by the U.S. Geological Survey (USGS) Land Processes Distributed Active Archive
+        Center (LPDAAC) Data Pool at https://lpdaac.usgs.gov.\n\n The data are available
+        in Geographic Tagged Image File Format (GeoTIFF) from the Africa Soil Information
+        Service (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing plant productivity data for the continent
+        of Africa that can be used to predict soil properties as well as for a range
+        of other applications, including erosion and landslide risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;AGRICULTURE&gt;AGRICULTURAL PLANT SCIENCE&gt;CROP/PLANT YIELDS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;AGRICULTURE&gt;SOILS&gt;SOIL FERTILITY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;ATMOSPHERE&gt;ATMOSPHERIC WATER VAPOR&gt;EVAPOTRANSPIRATION&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;ECOLOGICAL DYNAMICS&gt;ECOSYSTEM FUNCTIONS&gt;PHOTOSYNTHESIS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;ECOLOGICAL DYNAMICS&gt;ECOSYSTEM FUNCTIONS&gt;PRIMARY
+        PRODUCTION&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;VEGETATION&gt;CARBON&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;LAND SURFACE&gt;LAND USE/LAND COVER&gt;LAND PRODUCTIVITY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;LAND SURFACE&gt;SOILS&gt;SOIL PRODUCTIVITY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;SPECTRAL/ENGINEERING&gt;VISIBLE WAVELENGTHS&gt;VISIBLE IMAGERY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;SPECTRAL/ENGINEERING&gt;VISIBLE WAVELENGTHS&gt;VISIBLE RADIANCE&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 2012. AfSIS MODIS
+        Collection: Primary Productivity, 2012 Release. Palisades, NY: Center for
+        International Earth Science Information Network (CIESIN), Columbia University.
+        ftp://africagrids.net/1000m/MOD17A3/. Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-fddc1286-f367-4fe5-ba8e-6c02cd7259e6\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-132120f6-cbb8-40a6-a285-99b73ff53ed2\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d920a109c-85e7-405e-b2e7-2f2f498d629f\"><gml:beginPosition>2000-01-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2010-12-31T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/1000m/MOD17A3/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"d99cdfa55-17db-4de5-b167-6d0c9f322512\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#da91a5cf5-4ef0-4f27-987c-8c5c9ab3434f\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"da91a5cf5-4ef0-4f27-987c-8c5c9ab3434f\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d99cdfa55-17db-4de5-b167-6d0c9f322512\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214604724-SCIOPS\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>AfSIS
+        MODIS Collection: Vegetation Indices, April 2014 Release</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-12-02T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>CIESIN_AfSIS_MODIS_VEGIN201404
+        &gt; AfSIS MODIS Collection: Vegetation Indices, April 2014 Release</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2014-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>2014.04</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>CIESIN_AfSIS_MODIS_VEGIN201404</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>AfSIS
+        MODIS Collection: Vegetation Indices, April 2014 Release</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Africa Soil Information Service (AfSIS) Moderate Resolution Imaging Spectroradiometer
+        (MODIS) Collection's Vegetation Indices data set contains rasters with the
+        following calculations: time series average and time series monthly average
+        for the Enhanced Vegetation Index (EVI), Normalized Difference Vegetation
+        Index (NDVI), Red Reflectance Band 1, Near-Infrared Reflectance Band 2, Blue
+        Reflectance Band 3, and Mid-Infrared Reflectance Band 7. These Africa continent-wide
+        calculations for vegetation indices and surface reflectances use data from
+        the National Aeronautics and Space Administration (NASA) MODIS MOD13Q1 product.
+        The rasters have a 16-day temporal resolution, a spatial resolution of 250
+        meters, and are updated quarterly by AfSIS using data provided by the Columbia
+        University International Research Institute for Climate and Society (IRI)
+        at http://iridl.ldeo.columbia.edu.\n\n The data are available in Geographic
+        Tagged Image File Format (GeoTIFF) from the Africa Soil Information Service
+        (AfSIS).</gco:CharacterString></gmd:abstract><gmd:purpose><gco:CharacterString>To
+        serve a wide user community by providing vegetation and surface reflectance
+        data for the continent of Africa that can be used to predict soil properties
+        as well as for a range of other applications, including erosion and landslide
+        risk.</gco:CharacterString></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;ECOLOGICAL DYNAMICS&gt;ECOSYSTEM FUNCTIONS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;BIOSPHERE&gt;VEGETATION&gt;VEGETATION COVER&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"project\">project</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \     Use is authorized under the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/),
+        which only requires attribution of the source. The recommended citation for
+        this data set is: Africa Soil Information Service (AfSIS). 201404. AfSIS MODIS
+        Collection: Vegetation Indices, April 2014 Release. Palisades, NY: Center
+        for International Earth Science Information Network (CIESIN), Columbia University.
+        ftp://africagrids.net/250m/MOD13Q1/. Accessed DAY MONTH YEAR.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-2f28b916-0402-4b51-8225-f1941b00ef2c\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-16392650-f6d8-43cd-af5e-79201250d6c5\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-20.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-40.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>40.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d42bf1d64-8bad-4d28-b803-566394d46b54\"><gml:beginPosition>2000-02-01T00:00:00.000Z</gml:beginPosition><gml:endPosition>2014-03-31T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>afsis.info@africasoils.net</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>ftp://africagrids.net/250m/MOD13Q1/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Data in GeoTIFF format.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"dc454fb70-c717-4812-b124-69e13c472d80\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#d1b9979ce-5cb0-4326-b3b6-ef596725499c\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:operation><gmi:MI_Operation><gmi:description><gco:CharacterString>AFSIS/MODIS
+        &gt; Africa Soil Information Service MODIS Collection</gco:CharacterString></gmi:description><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AFSIS/MODIS</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmi:identifier><gmi:status></gmi:status><gmi:parentOperation
+        gco:nilReason=\"inapplicable\"></gmi:parentOperation></gmi:MI_Operation></gmi:operation><gmi:platform><eos:EOS_Platform
+        id=\"d1b9979ce-5cb0-4326-b3b6-ef596725499c\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#dc454fb70-c717-4812-b124-69e13c472d80\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result><result
+        concept-id=\"C1214311485-AU_AADC\" revision-id=\"1\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>Amery
+        Ice Shelf Grounding Zone defined as interpreted slope break in MODIS images</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2015-11-30T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>aad_ais_gz_modis_slope_break
+        &gt; Amery Ice Shelf Grounding Zone defined as interpreted slope break in
+        MODIS images</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2009-06-09T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>aad_ais_gz_modis_slope_break</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Amery
+        Ice Shelf Grounding Zone defined as interpreted slope break in MODIS images</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>Grounding
+        Zone of the Amery Ice Shelf, East Antarctica defined by break of surface slope
+        as determined through interpretation of MODIS images.  It defines the landward
+        edge of the grounding zone and therefore the maximum extent of the ice shelf.\n\nThe
+        MODIS data from the 250 m Channel 2 were processed to a reflectance product
+        and remapped to a Polar Stereographic Projection.  The image contrast was
+        stretched so that subtle variations in reflectance could be perceived.  The
+        variation in reflectance was used as an indicator of variation in slope.  The
+        break of slope of the snow surface was picked interactively on an image display
+        at a frequency sufficient to define the shape of the grounding zone margin.
+        \ The series of points are provided as a Point shapefile file as well as a
+        set of arcs connecting the points.  The point positions are given in geographic
+        coordinates.\n\nThis work was completed as part of ASAC projects 2224 and
+        3067 (ASAC_2224, ASAC_3067).</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;CRYOSPHERE&gt;GLACIERS/ICE SHEETS&gt;GLACIERS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;CRYOSPHERE&gt;GLACIERS/ICE SHEETS&gt;NONE&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;CRYOSPHERE&gt;GLACIERS/ICE SHEETS&gt;GLACIER TOPOGRAPHY/ICE SHEET
+        TOPOGRAPHY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>Not
+        provided &gt; Not provided</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>LANDSAT-7</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>TERRA
+        &gt; Earth Observing System, TERRA (AM-1)</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>AQUA
+        &gt; Earth Observing System, AQUA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"instrument\">instrument</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>\n
+        \                       This data set conforms to the PICCCBY Attribution
+        License\n                              (http://creativecommons.org/licenses/by/3.0/).\n
+        \                             \n                              Please follow
+        instructions listed in the citation reference provided at the URL below when
+        using these data.\n                              \n                              Notify
+        the author / investigator whenever the data are retrieved from the Data Centre,
+        and of use in publication.  Source of this data needs to be acknowledged when
+        used.\n   </gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-171b3033-92c0-43a4-ab4f-ed92b43e78d7\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>66.3</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>74.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-73.3</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>-68.4</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-08debadb-1643-4d19-befb-2d289d1b4c48\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>66.3</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>74.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>-73.3</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>-68.4</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"dc2139835-da77-49a7-a5da-b0106e4e1a27\"><gml:beginPosition>2003-11-02T00:00:00.000Z</gml:beginPosition><gml:endPosition>2003-11-02T00:00:00.000Z</gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>Neal.Young@aad.gov.au</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://data.aad.gov.au/aadc/portal/download_file.cfm?file_id=2630</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Download point for the shapefiles.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>https://secure3.aad.gov.au/proms/public/projects/report_project_public.cfm?project_no=2224</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        Public information for ASAC project 2224\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>https://secure3.aad.gov.au/proms/public/projects/report_project_public.cfm?project_no=3067</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        Public information for ASAC project 3067\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://data.aad.gov.au/aadc/metadata/citation.cfm?entry_id=aad_ais_gz_modis_slope_break</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Citation reference for this metadata record and dataset\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:instrument><gmi:MI_Instrument
+        id=\"d2e565bcf-c7b3-42a0-a7fe-1f261bb24563\"><gmi:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>MODIS
+        &gt; Moderate-Resolution Imaging Spectroradiometer</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date></gmd:CI_Citation></gmi:citation><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MODIS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Moderate-Resolution
+        Imaging Spectroradiometer</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:type><gco:CharacterString></gco:CharacterString></gmi:type><gmi:description
+        gco:nilReason=\"missing\"></gmi:description><gmi:mountedOn xlink:href=\"#de747c55b-19ee-4ef5-8f98-3eeb73acb6b7\"></gmi:mountedOn></gmi:MI_Instrument></gmi:instrument><gmi:platform><eos:EOS_Platform
+        id=\"de747c55b-19ee-4ef5-8f98-3eeb73acb6b7\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument xlink:href=\"#d2e565bcf-c7b3-42a0-a7fe-1f261bb24563\"></gmi:instrument></eos:EOS_Platform></gmi:platform><gmi:platform><eos:EOS_Platform
+        id=\"d816dff15-6b4b-4688-84d3-fade03e83643\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>LANDSAT-7</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString></gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument gco:nilReason=\"inapplicable\"></gmi:instrument></eos:EOS_Platform></gmi:platform><gmi:platform><eos:EOS_Platform
+        id=\"d96cf5607-5fe4-49b5-b95d-82304582211c\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>TERRA</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Earth
+        Observing System, TERRA (AM-1)</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument gco:nilReason=\"inapplicable\"></gmi:instrument></eos:EOS_Platform></gmi:platform><gmi:platform><eos:EOS_Platform
+        id=\"d301e1dec-e9c5-42f6-b7ea-70b319d3c88f\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>AQUA</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Earth
+        Observing System, AQUA</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        Specified</gco:CharacterString></gmi:description><gmi:instrument gco:nilReason=\"inapplicable\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata></result></results>"
+    http_version: 
+  recorded_at: Sun, 24 Apr 2016 11:44:00 GMT
+recorded_with: VCR 3.0.1

@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cmr.earthdata.nasa.gov/search/collections?include_tags=org.ceos.wgiss.cwic.granules.prod,org.geoss.geoss_data-core&science_keywords%5B%5D%5Bany%5D=CWIC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/iso19115+xml
+      Accept-Encoding:
+      - gzip, deflate
+      Client-Id:
+      - cmr_csw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 02 May 2016 22:28:56 GMT
+      Content-Type:
+      - application/iso19115+xml; charset=utf-8
+      Access-Control-Expose-Headers:
+      - CMR-Hits, CMR-Request-Id
+      Access-Control-Allow-Origin:
+      - "*"
+      Cmr-Hits:
+      - '0'
+      Cmr-Took:
+      - '11'
+      Cmr-Request-Id:
+      - 1c183d49-8dd2-4582-b5a0-e20ba27948a0
+      Content-Length:
+      - '86'
+      Server:
+      - Jetty(9.2.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><results><hits>0</hits><took>10</took></results>
+    http_version: 
+  recorded_at: Mon, 02 May 2016 22:28:56 GMT
+recorded_with: VCR 3.0.1

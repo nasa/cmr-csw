@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CMR CSW</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="https://cdn.earthdata.nasa.gov/eui/0.3.6/stylesheets/application.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.earthdata.nasa.gov/eui/0.3.6/js/eui.js"></script>
+  <script type="text/javascript" src="https://cdn.earthdata.nasa.gov/tophat/tophat.js"></script>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application', :media => 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="eui-layout">
+<div class="midnight-blue">
+  <div class="masthead-logo">
+    <h1><a href="https://earthdata.nasa.gov"><span class="hide-text">NASA Earthdata home</span></a><span class="hide-text">Earthdata home</span></h1>
+  </div>
+  <div style="clear: both;"></div>
+  <section class="hero">
+    <h1><a href="/csw">Catalog Service for the Web</a></h1>
+
+    <p>Using the NASA EOSDIS Common Metadata Repository</p>
+  </section>
+</div>
+<div class="container container-fixed">
+
+  <section class="content">
+    <%= yield %>
+  </section>
+</div>
+<footer>
+  <ul class="select-bar">
+    <li>
+      <a class="ext" href="<%= ENV['release_page'] %>" target="_blank">Release: <%= Rails.configuration.version %></a>
+    </li>
+    <li>NASA Official:
+      <a title="Contact EOSDIS regarding CSW" href="mailto:stephen.w.berrick@nasa.gov?Subject=CMR CSW">Stephen Berrick</a>
+    </li>
+  </ul>
+</footer>
+
+</body>
+</html>
+

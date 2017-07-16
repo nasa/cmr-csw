@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<ExceptionReport version="1.2.0" xmlns="http://www.opengis.net/ows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.opengis.net/ows owsExceptionReport.xsd">
+  <% @exceptions.each do |exception| %>
+  <Exception exceptionCode="<%= exception.code %>" locator="<%= exception.locator %>">
+    <ExceptionText><%= exception.text.html_safe %></ExceptionText>
+  </Exception>
+  <% end %>
+</ExceptionReport>

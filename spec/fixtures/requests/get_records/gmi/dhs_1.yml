@@ -1,0 +1,481 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cmr.earthdata.nasa.gov/search/collections?archive_center=DHS*&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geoss.geoss_data-core&options%5Barchive_center%5D%5Bpattern%5D=true&tag_key=org.geoss.geoss_data-core
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/iso19115+xml
+      Accept-Encoding:
+      - gzip, deflate
+      Client-Id:
+      - cmr_csw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Oct 2016 14:34:35 GMT
+      Content-Type:
+      - application/iso19115+xml; charset=utf-8
+      Access-Control-Expose-Headers:
+      - CMR-Hits, CMR-Request-Id
+      Access-Control-Allow-Origin:
+      - "*"
+      Cmr-Hits:
+      - '4'
+      Cmr-Took:
+      - '23'
+      Cmr-Request-Id:
+      - a170c8cc-741b-445f-a670-ada159f4712f
+      Vary:
+      - Accept-Encoding, User-Agent
+      Content-Length:
+      - '68016'
+      Server:
+      - Jetty(9.2.z-SNAPSHOT)
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><results><hits>4</hits><took>21</took><result
+        concept-id=\"C1214613898-SCIOPS\" revision-id=\"9\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>Digital
+        Flood Insurance Rate Map Database</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2016-10-20T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>Digital
+        Flood Insurance Rate Map Database</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2016-10-20T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"revision\">revision</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2003-10-16T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>FEMA_DFIRM</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Digital
+        Flood Insurance Rate Map Database</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        Digital Flood Insurance Rate Map (DFIRM) Database depicts flood risk\n      information
+        and supporting data used to develop the risk data. The primary risk\n      classifications
+        used are the 1-percent-annual-chance flood event, the\n      0.2-percent-annualchance
+        flood event, and areas of minimal flood risk. The\n      DFIRM Database is
+        derived from Flood Insurance Studies (FISs), previously\n      published Flood
+        Insurance Rate Maps (FIRMs), flood hazard analyses performed in\n      support
+        of the FISs and FIRMs, and new mapping data, where available. The FISs\n      and
+        FIRMs are published by the Federal Emergency Management Agency (FEMA). The\n
+        \     file is georeferenced to earth's surface using the UTM projection and\n
+        \     coordinate system. The specifications for the horizontal control of
+        DFIRM data\n      files are consistent with those required for mapping at
+        a scale of 1:12,000.\n      \n      The FIRM is the basis for floodplain management,
+        mitigation, and insurance\n      activities for the National Flood Insurance
+        Program (NFIP). Insurance\n      applications include enforcement of the mandatory
+        purchase requirement of the\n      Flood Disaster Protection Act, which \"...
+        requires the purchase of flood\n      insurance by property owners who are
+        being assisted by Federal programs or by\n      Federally supervised, regulated
+        or insured agencies or institutions in the\n      acquisition or improvement
+        of land facilities located or to be located in\n      identified areas having
+        special flood hazards,\" Section 2 (b) (4) of the Flood\n      Disaster Protection
+        Act of 1973. In addition to the identification of Special\n      Flood Hazard
+        Areas (SFHAs), the risk zones shown on the FIRMs are the basis for\n      the
+        establishment of premium rates for flood coverage offered through the NFIP.\n
+        \     The DFIRM Database presents the flood risk information depicted on the
+        FIRM in\n      a digital format suitable for use in electronic mapping applications.
+        The DFIRM\n      database is a subset of the Digital FIS database that serves
+        to archive the\n      information collected during the FIS.</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;ENVIRONMENTAL GOVERNANCE/MANAGEMENT&gt;ENVIRONMENTAL
+        ASSESSMENTS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;ENVIRONMENTAL GOVERNANCE/MANAGEMENT&gt;LAND
+        MANAGEMENT&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;ENVIRONMENTAL GOVERNANCE/MANAGEMENT&gt;WATER
+        MANAGEMENT&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;NONE&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;LAKES/RESERVOIRS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;RIVERS/STREAMS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;WATER
+        CHANNELS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;DRAINAGE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;FLOODS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;HYDROPATTERN&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;RUNOFF&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;STAGE
+        HEIGHT&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;WATER
+        DEPTH&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>UNITED
+        STATES OF AMERICA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"place\">place</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>DHS/FEMA/MSC</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"dataCenter\">dataCenter</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString>The
+        hardcopy FIRM and DFIRM and the accompanying FISs are the official\n                  designation
+        of SFHAs and Base Flood Elevations (BFEs) for the NFIP. For the\n                  purposes
+        of the NFIP, changes to the flood risk information published by FEMA\n                  may
+        only be performed by FEMA and through the mechanisms established in the\n
+        \                 NFIP regulations (44 CFR Parts 59-78).\n                  \n
+        \                 These digital data are produced in conjunction with the
+        hardcopy FIRMs and\n                  generally match the hardcopy map exactly.
+        However the hardcopy flood maps and\n                  flood profiles are
+        the authoritative documents for the NFIP. Acknowledgement of\n                  FEMA
+        would be appreciated in products derived from these data.</gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:aggregationInfo><gmd:MD_AggregateInformation><gmd:aggregateDataSetName><gmd:CI_Citation><gmd:title><gco:CharacterString>FEMA_Digital_Q3</gco:CharacterString></gmd:title><gmd:date
+        gco:nilReason=\"unknown\"></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:otherCitationDetails><gco:CharacterString>Extra
+        data</gco:CharacterString></gmd:otherCitationDetails></gmd:CI_Citation></gmd:aggregateDataSetName><gmd:aggregateDataSetIdentifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>FEMA_Digital_Q3</gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:aggregateDataSetIdentifier><gmd:associationType><gmd:DS_AssociationTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#DS_AssociationTypeCode\"
+        codeListValue=\"Input Collection\">Input Collection</gmd:DS_AssociationTypeCode></gmd:associationType></gmd:MD_AggregateInformation></gmd:aggregationInfo><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:description><gco:CharacterString>SpatialGranuleSpatialRepresentation=NO_SPATIAL</gco:CharacterString></gmd:description><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-e559f0e2-8d81-4404-964e-bb44d691116d\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-177.1</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-61.48</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>13.71</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>76.63</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-d1521348-e94a-44ef-98bb-4ab4bdc8b260\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-177.1</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-61.48</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>13.71</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>76.63</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d3c1c367e-714a-4428-b458-49adb7ad750a\"><gml:beginPosition>1998-07-01T00:00:00.000Z</gml:beginPosition><gml:endPosition></gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString>DHS/FEMA/MSC</gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>Tyler.B.Stevens@nasa.gov</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.msc.fema.gov/webapp/wcs/stores/servlet/info?storeId=10001&amp;catalogId=10001&amp;langId=-1&amp;content=productDFIRM&amp;title=DFIRM%20Databases&amp;parent=productInfo&amp;parentTitle=Product%20Information</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>Standard
+        Digital Flood Insurance Rate Map (DFIRM) Database.</gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor><gmi:processingInformation><eos:EOS_Processing><gmi:identifier></gmi:identifier><eos:otherProperty><gco:Record><eos:AdditionalAttributes><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.extraction_date</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"STRING\">STRING</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>2015-12-02
+        13:00:55</gco:CharacterString></eos:value></eos:AdditionalAttribute><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.keyword_version</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"FLOAT\">FLOAT</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>8.1</gco:CharacterString></eos:value></eos:AdditionalAttribute></eos:AdditionalAttributes></gco:Record></eos:otherProperty></eos:EOS_Processing></gmi:processingInformation></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata><tags><tag><tagKey>org.geoss.geoss_data-core</tagKey></tag></tags></result><result
+        concept-id=\"C1214584905-SCIOPS\" revision-id=\"3\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>Emergency
+        Response and Notification System (ERNS)</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2016-10-04T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>Emergency
+        Response and Notification System (ERNS)</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2016-10-04T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"revision\">revision</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime></gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>EPA0147</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>Emergency
+        Response and Notification System (ERNS)</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>The
+        \"Emergency Response Notification System\" (ERNS) ERNS is a\n      national
+        database used to store information on releases of oil\n      and hazardous
+        substances. Its primary purpose is to standardize\n      and collect notifications
+        made to the federal government under\n      the Comprehensive Environmental
+        Response, Compensation, and\n      Liability Act (CERCLA), the Superfund Amendments
+        and\n      Reauthorization Act (SARA), the Clean Water Act (CWA), and the\n
+        \     Hazardous Material Transportation Act . Since its inception in\n      1986,
+        ERNS has received over 170,000 release notifications.\n      \n      The ERNS
+        program is a cooperative data sharing effort among EPA\n      Headquarters,
+        DOT Research and Special Programs Administration's\n      John A. Volpe National
+        Transportation Systems Center (VNTSC),\n      and the National Response Center
+        (NRC) (a nationwide response\n      center for chemical emergencies, staffed
+        by the U.S. Coast Guard\n      and sponsored by 14 federal agencies). EPA
+        manages and funds\n      ERNS, and the VNTSC provides operation and maintenance
+        support\n      through an interagency agreement with EPA.\n      \n      Currently,
+        ERNS data are used to assist decision-makers in\n      emergency response
+        and release prevention issues. Specific\n      examples of ERNS data applications
+        include guidance and\n      regulatory development, responses to congressional
+        inquiries,\n      response preparedness, compliance and enforcement support,\n
+        \     statistical and trend analysis, environmental planning, spill\n      prevention
+        programs, legal analyses, property transfers/site\n      audits, and academic
+        research.\n       LANGUAGE:\n      \n      English\n       ACCESS/AVAILABILITY:\n
+        \     \n      Data Center: U.S. Environmental Protection Agency\n      Dissemination
+        Media: Hard Copy (computer printouts, reports),\n                           magnetic
+        tape\n      File Format: ASCII, EBCDIC\n      Access Instructions: Contact
+        the data center.\n      Size:\n      Memory Requirements:\n      Operating
+        System:\n      Hardware Required:\n      Software Required:\n      Availability
+        Status: Purchase\n      Documentation Available:\n       ADDITIONAL INFORMATION:\n
+        \     \n      Accessing cost is based on materials used and the time and\n
+        \     effort expanded to fill the request.</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;ENVIRONMENTAL IMPACTS&gt;CONTAMINANT LEVELS/SPILLS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;GROUND WATER&gt;GROUNDWATER CHEMISTRY&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;RIVERS/STREAMS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;RUNOFF&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;WATER QUALITY/WATER CHEMISTRY&gt;CONTAMINANTS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>UNITED
+        STATES OF AMERICA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"place\">place</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>DHS/CG/NRC</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"dataCenter\">dataCenter</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString></gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:description><gco:CharacterString>SpatialGranuleSpatialRepresentation=NO_SPATIAL</gco:CharacterString></gmd:description><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-0ada5809-ad8c-4170-8799-7e75b08617e4\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-125.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-67.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>25.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>50.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-632b7df5-0f57-4cb4-91bc-60ff691fd024\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-125.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-67.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>25.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>50.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"da8103be4-550f-475e-a8ae-2f8c0f056462\"><gml:beginPosition>1986-01-01T00:00:00.000Z</gml:beginPosition><gml:endPosition></gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString>DHS/CG/NRC</gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.nrc.uscg.mil/nrchp.html</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description gco:nilReason=\"missing\"></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.nrc.uscg.mil/index.html</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description gco:nilReason=\"missing\"></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor><gmi:processingInformation><eos:EOS_Processing><gmi:identifier></gmi:identifier><eos:otherProperty><gco:Record><eos:AdditionalAttributes><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.extraction_date</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"STRING\">STRING</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>2015-12-02
+        12:15:07</gco:CharacterString></eos:value></eos:AdditionalAttribute><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.keyword_version</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"FLOAT\">FLOAT</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>8.1</gco:CharacterString></eos:value></eos:AdditionalAttribute></eos:AdditionalAttributes></gco:Record></eos:otherProperty></eos:EOS_Processing></gmi:processingInformation></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata><tags><tag><tagKey>org.geoss.geoss_data-core</tagKey></tag></tags></result><result
+        concept-id=\"C1214613424-SCIOPS\" revision-id=\"6\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>FEMA
+        Digital Q3 Flood Data</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2016-10-17T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>FEMA
+        Digital Q3 Flood Data</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2016-10-17T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"revision\">revision</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2003-06-10T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>FEMA_Digital_Q3</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>FEMA
+        Digital Q3 Flood Data</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>Digital
+        Q3 Flood Data are developed by scanning the existing FIRM hardcopy,\n      vectorizing
+        a thematic overlay of flood risks. Vector Q3 Flood Data files\n      contain
+        only certain features from the existing FIRM hardcopy. Q3 vector data\n      are
+        contained in one single countywide file, including all incorporated and\n
+        \     unincorporated areas of a county.\n      \n      Digital Q3 Flood Data
+        do not replace the existing FIRM hardcopy or, if one\n      exists, DFIRM
+        product. The product is designed to support planning activities,\n      some
+        Community Rating System activities, insurance marketing, and mortgage\n      portfolio
+        reviews. It does not provide base flood elevation information; thus,\n      it
+        has limited application for engineering analysis, particularly for site\n
+        \     design or rating flood insurance policies for properties located within
+        Special\n      Flood Hazard Areas (SFHAs).\n      \n      Digital Q3 Flood
+        Data are not tied to a base map, are not used to produce a new\n      version
+        of the FIRM hardcopy, and are not subjected to community review. The\n      digital
+        Q3 Flood Data are designed to provide guidance and a general proximity\n      of
+        the location of Special Flood Hazard Areas.\n      \n      The digital Q3
+        Flood Data product can be a valuable tool in screening property\n      addresses
+        within a Geographic Information System to determine flood risks.\n      However,
+        since the geographic processing performed to develop digital Q3 Flood\n      Data
+        may introduce differences with the FIRM hardcopy source, users must apply\n
+        \     considerable care and judgment in the application of this product. For\n
+        \     instance, digital Q3 Flood Data may be overlaid on highly detailed large-scale\n
+        \     community base mapping data, but, if parcel level determinations are
+        made, they\n      must be prefaced with information about the accuracy of
+        the data from which\n      they are derived.\n      \n      Contents of Q3
+        Data\n      \n      The vectorized features contained in digital Q3 Flood
+        Data files include:\n      \n      - Annual chance floodplain areas of 1 and
+        0.2 percent, including Zone V areas,\n      certain floodway areas, and zone
+        designations\n      - Political areas, including community identification
+        numbers\n      - FIRM panel areas, including panel number and suffix\n      -
+        7.5-minute quadrangle areas\n      - Mapable Letters of Map Change (LOMCs)\n
+        \     \n      [Summary provided by FEMA]</gco:CharacterString></gmd:abstract><gmd:purpose
+        gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;BOUNDARIES&gt;POLITICAL DIVISIONS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;ENVIRONMENTAL GOVERNANCE/MANAGEMENT&gt;WATER
+        MANAGEMENT&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;NATURAL HAZARDS&gt;FLOODS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;FLOODS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;LAKES/RESERVOIRS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;RIVERS/STREAMS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER FEATURES&gt;WETLANDS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>PUERTO
+        RICO</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>VIRGIN
+        ISLANDS</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>UNITED
+        STATES OF AMERICA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"place\">place</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>DHS/FEMA/MSC</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"dataCenter\">dataCenter</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MAPS</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString></gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:description><gco:CharacterString>SpatialGranuleSpatialRepresentation=NO_SPATIAL</gco:CharacterString></gmd:description><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-16c0fe8c-2d56-428b-b544-d3d70261d22a\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-163.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>15.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>72.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-990b5404-0978-4675-a1d8-6c4e5c82bbb1\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-163.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>15.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>72.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString>DHS/FEMA/MSC</gco:CharacterString></gmd:organisationName><gmd:contactInfo><gmd:CI_Contact><gmd:address><gmd:CI_Address><gmd:electronicMailAddress><gco:CharacterString>Tyler.B.Stevens@nasa.gov</gco:CharacterString></gmd:electronicMailAddress></gmd:CI_Address></gmd:address></gmd:CI_Contact></gmd:contactInfo><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://gcmd.nasa.gov/getdif.htm?FEMA_Flood</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \         Metadata on United States Flood Risk Zones (GIS Coverage) from ESRI,
+        which is\n         derived from this FEMA Digital Q3 Flood Data.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://store.msc.fema.gov/webapp/wcs/stores/servlet/FemaWelcomeView?storeId=10001&amp;catalogId=10001&amp;langId=-1</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \         The FEMA Flood Map Store, where users can purchase the FEMA Digital
+        Q3 Flood\n         Data.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.fema.gov/hazard/map/q3.shtm</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        FEMA Digital Q3 Flood Data frequently asked questions.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.fema.gov/hazard/map/q3.shtm</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>Guide</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        FEMA Digital Q3 Flood Data user's guide.\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor><gmi:processingInformation><eos:EOS_Processing><gmi:identifier></gmi:identifier><eos:otherProperty><gco:Record><eos:AdditionalAttributes><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.extraction_date</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"STRING\">STRING</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>2015-12-02
+        12:58:32</gco:CharacterString></eos:value></eos:AdditionalAttribute><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.keyword_version</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"FLOAT\">FLOAT</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>8.1</gco:CharacterString></eos:value></eos:AdditionalAttribute></eos:AdditionalAttributes></gco:Record></eos:otherProperty></eos:EOS_Processing></gmi:processingInformation></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:platform><eos:EOS_Platform
+        id=\"d21796e06-c677-41ec-8c99-bfd04d2a8a20\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MAPS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString></gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmi:description><gmi:instrument gco:nilReason=\"inapplicable\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata><tags><tag><tagKey>org.geoss.geoss_data-core</tagKey></tag></tags></result><result
+        concept-id=\"C1214611661-SCIOPS\" revision-id=\"3\" format=\"application/iso19115+xml\"><gmi:MI_Metadata
+        xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:gmx=\"http://www.isotc211.org/2005/gmx\"
+        xmlns:gss=\"http://www.isotc211.org/2005/gss\" xmlns:gco=\"http://www.isotc211.org/2005/gco\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gmd=\"http://www.isotc211.org/2005/gmd\"
+        xmlns:gmi=\"http://www.isotc211.org/2005/gmi\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:eos=\"http://earthdata.nasa.gov/schema/eos\"
+        xmlns:srv=\"http://www.isotc211.org/2005/srv\" xmlns:gts=\"http://www.isotc211.org/2005/gts\"
+        xmlns:swe=\"http://schemas.opengis.net/sweCommon/2.0/\" xmlns:gsr=\"http://www.isotc211.org/2005/gsr\"><gmd:fileIdentifier><gco:CharacterString>FEMA
+        Multi-Hazard Mapping Initiative (MMI) - HazardMaps</gco:CharacterString></gmd:fileIdentifier><gmd:language><gco:CharacterString></gco:CharacterString></gmd:language><gmd:characterSet><gmd:MD_CharacterSetCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode\"
+        codeListValue=\"utf8\">utf8</gmd:MD_CharacterSetCode></gmd:characterSet><gmd:hierarchyLevel><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:hierarchyLevel><gmd:contact
+        gco:nilReason=\"missing\"></gmd:contact><gmd:dateStamp><gco:DateTime>2016-10-18T00:00:00.000Z</gco:DateTime></gmd:dateStamp><gmd:metadataStandardName><gco:CharacterString>ISO
+        19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and
+        gridded data</gco:CharacterString></gmd:metadataStandardName><gmd:metadataStandardVersion><gco:CharacterString>ISO
+        19115-2:2009(E)</gco:CharacterString></gmd:metadataStandardVersion><gmd:referenceSystemInfo><gmd:MD_ReferenceSystem><gmd:referenceSystemIdentifier><gmd:RS_Identifier><gmd:code><gco:CharacterString>CARTESIAN</gco:CharacterString></gmd:code></gmd:RS_Identifier></gmd:referenceSystemIdentifier></gmd:MD_ReferenceSystem></gmd:referenceSystemInfo><gmd:identificationInfo><gmd:MD_DataIdentification><gmd:citation><gmd:CI_Citation><gmd:title><gco:CharacterString>FEMA
+        Multi-Hazard Mapping Initiative (MMI) - HazardMaps</gco:CharacterString></gmd:title><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2016-10-18T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"revision\">revision</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:date><gmd:CI_Date><gmd:date><gco:DateTime>2002-05-23T00:00:00.000Z</gco:DateTime></gmd:date><gmd:dateType><gmd:CI_DateTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode\"
+        codeListValue=\"creation\">creation</gmd:CI_DateTypeCode></gmd:dateType></gmd:CI_Date></gmd:date><gmd:edition><gco:CharacterString>Not
+        provided</gco:CharacterString></gmd:edition><gmd:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>HAZARDMAPS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString>FEMA
+        Multi-Hazard Mapping Initiative (MMI) - HazardMaps</gco:CharacterString></gmd:description></gmd:MD_Identifier></gmd:identifier></gmd:CI_Citation></gmd:citation><gmd:abstract><gco:CharacterString>FEMA's
+        Mutihazard Mapping Initiative (MMI) is to maintain a living\n      atlas of
+        hazards data and map services for advisory purposes supplied\n      from a
+        network of hazard and base map providers.\n      \n      The initiative is
+        an implementation of Section 203(k) of the Disaster\n      Mitigation Act
+        of 2000, which calls for the creation of Multihazard\n      Advisory Maps,
+        or maps \"on which hazard data concerning each type of\n      natural disaster
+        is identified simultaneously for the purpose of\n      showing areas of hazard
+        overlap.\"\n      \n      The goals of the initiative are to\n      -  Foster
+        the exchange and collection of geospatial hazards data\n      -  Increase
+        hazard awareness by providing a multihazard mapping\n      capability on the
+        Internet for advisory purposes\n      -  Encourage data providers to establish
+        standards based services that\n      facilitate access and distribution of
+        their data for the creating of\n      these maps.\n      \n      Data consists
+        of:\n      - Historical North Atlantic Hurricane Tracks file of Major Storms
+        with\n      Landfall in the United States\n      - Historical North Atlantic
+        Tropical Cyclone Tracks\n      - Landslide Overview Map of the Conterminous
+        United States.\n      The following data are available derived from the USGS
+        National Atlas\n      - Landslide Events\n      - Calderas - Impact Structures\n
+        \     - Craters - Impact Structres\n      - Fault Lines - Fracture Zones\n
+        \     - Glacial Limits/Extent\n      - Metamorphism - Facies\n      - Rocks
+        Types</gco:CharacterString></gmd:abstract><gmd:purpose gco:nilReason=\"missing\"></gmd:purpose><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;ATMOSPHERE&gt;WEATHER EVENTS&gt;TROPICAL CYCLONES&gt;NONE&gt;NONE&gt;HURRICANES</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;NATURAL HAZARDS&gt;EARTHQUAKES&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;NATURAL HAZARDS&gt;FLOODS&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;TERRESTRIAL HYDROSPHERE&gt;SURFACE WATER&gt;SURFACE WATER PROCESSES/MEASUREMENTS&gt;FLOODS&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;LAND SURFACE&gt;EROSION/SEDIMENTATION&gt;LANDSLIDES&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;SOLID EARTH&gt;TECTONICS&gt;EARTHQUAKES&gt;EARTHQUAKE OCCURRENCES&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;NATURAL HAZARDS&gt;TROPICAL CYCLONES&gt;HURRICANES&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:keyword><gco:CharacterString>EARTH
+        SCIENCE&gt;HUMAN DIMENSIONS&gt;NATURAL HAZARDS&gt;LANDSLIDES&gt;NONE&gt;NONE&gt;NONE</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"theme\">theme</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>UNITED
+        STATES OF AMERICA</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"place\">place</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>DHS/FEMA/MMI</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"dataCenter\">dataCenter</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:descriptiveKeywords><gmd:MD_Keywords><gmd:keyword><gco:CharacterString>MAPS</gco:CharacterString></gmd:keyword><gmd:type><gmd:MD_KeywordTypeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode\"
+        codeListValue=\"platform\">platform</gmd:MD_KeywordTypeCode></gmd:type></gmd:MD_Keywords></gmd:descriptiveKeywords><gmd:resourceConstraints><gmd:MD_LegalConstraints><gmd:useLimitation><gco:CharacterString></gco:CharacterString></gmd:useLimitation><gmd:otherConstraints><gco:CharacterString>Restriction
+        Flag:</gco:CharacterString></gmd:otherConstraints></gmd:MD_LegalConstraints></gmd:resourceConstraints><gmd:language><gco:CharacterString>eng</gco:CharacterString></gmd:language><gmd:extent><gmd:EX_Extent
+        id=\"boundingExtent\"><gmd:description><gco:CharacterString>SpatialGranuleSpatialRepresentation=NO_SPATIAL</gco:CharacterString></gmd:description><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-cba562df-988e-4baa-979d-c035519a2963\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-125.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>10.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>60.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:geographicElement><gmd:EX_GeographicBoundingBox
+        id=\"geo-ecceb554-848f-418e-90cc-289ab11105e6\"><gmd:extentTypeCode><gco:Boolean>1</gco:Boolean></gmd:extentTypeCode><gmd:westBoundLongitude><gco:Decimal>-125.0</gco:Decimal></gmd:westBoundLongitude><gmd:eastBoundLongitude><gco:Decimal>-60.0</gco:Decimal></gmd:eastBoundLongitude><gmd:southBoundLatitude><gco:Decimal>10.0</gco:Decimal></gmd:southBoundLatitude><gmd:northBoundLatitude><gco:Decimal>60.0</gco:Decimal></gmd:northBoundLatitude></gmd:EX_GeographicBoundingBox></gmd:geographicElement><gmd:temporalElement><gmd:EX_TemporalExtent><gmd:extent><gml:TimePeriod
+        gml:id=\"d15782853-7c03-4c86-a3cf-ee2d786a2076\"><gml:beginPosition>1851-01-01T00:00:00.000Z</gml:beginPosition><gml:endPosition></gml:endPosition></gml:TimePeriod></gmd:extent></gmd:EX_TemporalExtent></gmd:temporalElement></gmd:EX_Extent></gmd:extent><gmd:processingLevel><gmd:MD_Identifier><gmd:code><gco:CharacterString></gco:CharacterString></gmd:code></gmd:MD_Identifier></gmd:processingLevel></gmd:MD_DataIdentification></gmd:identificationInfo><gmd:distributionInfo><gmd:MD_Distribution><gmd:distributor><gmd:MD_Distributor><gmd:distributorContact><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString>DHS/FEMA/MMI</gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"distributor\">distributor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:distributorContact><gmd:distributorTransferOptions><gmd:MD_DigitalTransferOptions><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.giscafe.com/technical/RFPs/old/MMI.php</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Downloadable ARC shape data files and metadata information\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.nationalatlas.gov/</gmd:URL></gmd:linkage><gmd:name><gco:CharacterString>DATA
+        ACCESS</gco:CharacterString></gmd:name><gmd:description><gco:CharacterString>\n
+        \        Access to the USGS National Atlas\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"\"></gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine><gmd:onLine><gmd:CI_OnlineResource><gmd:linkage><gmd:URL>http://www.giscafe.com/technical/RFPs/old/MMI.php</gmd:URL></gmd:linkage><gmd:description><gco:CharacterString>\n
+        \        Access to online hazard maps, download data and information\n      </gco:CharacterString></gmd:description><gmd:function><gmd:CI_OnLineFunctionCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode\"
+        codeListValue=\"information\">information</gmd:CI_OnLineFunctionCode></gmd:function></gmd:CI_OnlineResource></gmd:onLine></gmd:MD_DigitalTransferOptions></gmd:distributorTransferOptions></gmd:MD_Distributor></gmd:distributor></gmd:MD_Distribution></gmd:distributionInfo><gmd:dataQualityInfo><gmd:DQ_DataQuality><gmd:scope><gmd:DQ_Scope><gmd:level><gmd:MD_ScopeCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#MD_ScopeCode\"
+        codeListValue=\"series\">series</gmd:MD_ScopeCode></gmd:level></gmd:DQ_Scope></gmd:scope><gmd:lineage><gmd:LI_Lineage><gmd:processStep><gmi:LE_ProcessStep><gmd:description
+        gco:nilReason=\"unknown\"></gmd:description><gmd:processor><gmd:CI_ResponsibleParty><gmd:organisationName><gco:CharacterString></gco:CharacterString></gmd:organisationName><gmd:role><gmd:CI_RoleCode
+        codeList=\"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode\"
+        codeListValue=\"processor\">processor</gmd:CI_RoleCode></gmd:role></gmd:CI_ResponsibleParty></gmd:processor><gmi:processingInformation><eos:EOS_Processing><gmi:identifier></gmi:identifier><eos:otherProperty><gco:Record><eos:AdditionalAttributes><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.uuid</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"STRING\">STRING</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>87e18364-4d4b-46e7-a0ce-cfc491791452</gco:CharacterString></eos:value></eos:AdditionalAttribute><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.extraction_date</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"STRING\">STRING</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>2015-12-02
+        12:49:28</gco:CharacterString></eos:value></eos:AdditionalAttribute><eos:AdditionalAttribute><eos:reference><eos:EOS_AdditionalAttributeDescription><eos:type><eos:EOS_AdditionalAttributeTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeTypeCode\"
+        codeListValue=\"processingInformation\">processingInformation</eos:EOS_AdditionalAttributeTypeCode></eos:type><eos:name><gco:CharacterString>metadata.keyword_version</gco:CharacterString></eos:name><eos:description><gco:CharacterString>Not
+        provided</gco:CharacterString></eos:description><eos:dataType><eos:EOS_AdditionalAttributeDataTypeCode
+        codeList=\"http://earthdata.nasa.gov/metadata/resources/Codelists.xml#EOS_AdditionalAttributeDataTypeCode\"
+        codeListValue=\"FLOAT\">FLOAT</eos:EOS_AdditionalAttributeDataTypeCode></eos:dataType></eos:EOS_AdditionalAttributeDescription></eos:reference><eos:value><gco:CharacterString>8.1</gco:CharacterString></eos:value></eos:AdditionalAttribute></eos:AdditionalAttributes></gco:Record></eos:otherProperty></eos:EOS_Processing></gmi:processingInformation></gmi:LE_ProcessStep></gmd:processStep></gmd:LI_Lineage></gmd:lineage></gmd:DQ_DataQuality></gmd:dataQualityInfo><gmi:acquisitionInformation><gmi:MI_AcquisitionInformation><gmi:platform><eos:EOS_Platform
+        id=\"dc54f7d8a-cd54-44ef-abe8-4b741931590c\"><gmi:identifier><gmd:MD_Identifier><gmd:code><gco:CharacterString>MAPS</gco:CharacterString></gmd:code><gmd:description><gco:CharacterString></gco:CharacterString></gmd:description></gmd:MD_Identifier></gmi:identifier><gmi:description><gco:CharacterString>Not
+        provided</gco:CharacterString></gmi:description><gmi:instrument gco:nilReason=\"inapplicable\"></gmi:instrument></eos:EOS_Platform></gmi:platform></gmi:MI_AcquisitionInformation></gmi:acquisitionInformation></gmi:MI_Metadata><tags><tag><tagKey>org.geoss.geoss_data-core</tagKey></tag></tags></result></results>"
+    http_version: 
+  recorded_at: Fri, 21 Oct 2016 14:34:35 GMT
+recorded_with: VCR 3.0.1

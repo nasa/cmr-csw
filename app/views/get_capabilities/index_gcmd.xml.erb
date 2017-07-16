@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML file is here FOR REREFENCE ONLY.  It is the original GCMD GetCapabilities response.  It contains comments
+     to be used for the CMR CSW implementation as well as marks that identify queryables that were captured in the
+     initializer queryables_mapping, which was creating by comparing the CSW standard documents, the GCMD GetCapabilities
+     response and the CMR API documentation.
+
+     DO NOT REMOVE THIS FILE.  GCMD discontinued support for CSW and this file can be used for comparing GCMD CSW and
+     CMR CSW
+-->
+<csw:Capabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:gml="http://www.opengis.net/gml"
+ xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc"
+ xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink"
+ xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 2.0.2/CSW-discovery.xsd"
+ version="2.0.2">
+    <ows:ServiceIdentification>
+        <ows:Title>NASA's Common Metadata Repository (CMR) CSW Service</ows:Title>
+        <ows:Abstract>NASA's CMR contributes to GEOSS by offering a web service that utilizes
+            the Catalogue Service for the Web (CSW) protocol. This service provides GEOSS with 
+            the capability to perform dynamic queries of NASA’s Earth Science metadata collection. 
+            The CSW service is registered within the GEOSS registry system, which allows NASA’s 
+            metadata to be fully searchable within the GEOSS portal. In addition, as a service to 
+            the Group on Earth Observations (GEO), CMR CSW has also made US GEO and Committee on 
+            Earth Observation Satellites (CEOS) members’ metadata collections available to GEOSS 
+            from the CSW service.</ows:Abstract>
+        <ows:Keywords>
+            <!-- Keywords are automatically added by GeoNetwork
+            according to catalogue content. -->
+            <ows:Keyword>CEOS</ows:Keyword>
+            <ows:Keyword>geossNoMonetaryCharge</ows:Keyword>
+            <ows:Keyword>geossDataCore</ows:Keyword>
+            <ows:Keyword>USA/NOAA</ows:Keyword>
+            <ows:Keyword>SHIPS</ows:Keyword>
+            <ows:Keyword>GEOGRAPHIC REGION &gt; POLAR</ows:Keyword>
+            <ows:Keyword>USA/NASA</ows:Keyword>
+            <ows:Keyword>AMD</ows:Keyword>
+            <ows:Keyword>MSBS &gt; Multibeam Swath Bathymetry System</ows:Keyword>
+            <ows:Keyword>SONAR &gt; Sound Navigation and Ranging</ows:Keyword>
+            <ows:Type>theme</ows:Type>
+        </ows:Keywords>
+        <ows:ServiceType>CSW</ows:ServiceType>
+        <ows:ServiceTypeVersion>2.0.2</ows:ServiceTypeVersion>
+        <ows:Fees />
+        <ows:AccessConstraints />
+    </ows:ServiceIdentification>
+    
+    <ows:ServiceProvider>
+        <ows:ProviderName>NASA</ows:ProviderName>
+        <ows:ProviderSite xlink:href="http://www.nasa.gov" />
+        <ows:ServiceContact>
+            <ows:IndividualName>Andy Mitchell</ows:IndividualName>
+            <ows:PositionName>Responsible NASA Official</ows:PositionName>
+            <ows:ContactInfo>
+                <ows:Phone>
+                    <ows:Voice />
+                    <ows:Facsimile />  
+                </ows:Phone>
+                <ows:Address>
+                    <ows:DeliveryPoint />
+                    <ows:City />
+                    <ows:AdministrativeArea />
+                    <ows:PostalCode />
+                    <ows:Country />
+                    <ows:ElectronicMailAddress />
+                </ows:Address>
+                <ows:HoursOfService />
+                <ows:ContactInstructions />  
+            </ows:ContactInfo>
+            <ows:Role />
+        </ows:ServiceContact>
+  
+    </ows:ServiceProvider>
+    <ows:OperationsMetadata>
+        
+        <ows:Operation name="GetCapabilities">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="<%= root_url %>"/>
+                    <ows:Post xlink:href="<%= root_url %>"/>               
+                </ows:HTTP> 
+            </ows:DCP>
+            <ows:Parameter name="sections">
+                <ows:Value>ServiceIdentification</ows:Value>
+                <ows:Value>ServiceProvider</ows:Value>
+                <ows:Value>OperationsMetadata</ows:Value>
+                <ows:Value>Filter_Capabilities</ows:Value>     
+            </ows:Parameter>
+            <!-- CVD repositioned this to pass schema validation -->
+            <ows:Constraint name="PostEncoding">
+                <ows:Value>XML</ows:Value>
+            </ows:Constraint>
+        </ows:Operation>
+        
+        <ows:Operation name="DescribeRecord">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="<%= root_url %>"/>
+                    <ows:Post xlink:href="<%= root_url %>">
+                        <ows:Constraint name="PostEncoding">
+                            <ows:Value>XML</ows:Value>
+                            <!-- CVD No initial support for SOAP -->
+                            <!-- <ows:Value>SOAP</ows:Value> -->
+                        </ows:Constraint>
+                    </ows:Post>
+                </ows:HTTP>  
+            </ows:DCP>
+            <!-- CVD typeName parameter doesn't work for GCMD - what we have now for the GetDomain view is what they have -->
+            <!-- no typeName and both schemas returned -->
+            <ows:Parameter name="typeName">
+                <!-- CVD the csw:Record parameter doesn't work for GCMD -->
+                <ows:Value>csw:Record</ows:Value>
+                <!-- CVD Must investigate further and determine compatibility of ISO TC 211 with ISO 19115 CMR ISO-MENDS or CMR ISO-SMAP -->
+                <!-- CVD the gmd:MD_Metadata parameter doesn't work for GCMD -->
+                <ows:Value>gmd:MD_Metadata</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="outputFormat">
+                <ows:Value>application/xml</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="schemaLanguage">
+                <ows:Value>http://www.w3.org/TR/xmlschema-1/</ows:Value>
+            </ows:Parameter>
+            <!-- CVD this seems to be a dupe of the PostEncoding above-->
+            <ows:Constraint name="PostEncoding">
+                <ows:Value>XML</ows:Value>
+            </ows:Constraint>
+        </ows:Operation>
+        
+        <!-- CVD GetDomain only works with propertyName query param or XML element name, the ParameterName detailed in
+        the GetDomain csw schema element doesn't work-->
+        <ows:Operation name="GetDomain">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="<%= root_url %>" />
+                    <ows:Post xlink:href="<%= root_url %>" />
+                </ows:HTTP>
+            </ows:DCP>
+            <!-- CVD this was missing in the original GCMD -->
+            <ows:Constraint name="PostEncoding">
+                <ows:Value>XML</ows:Value>
+            </ows:Constraint>
+        </ows:Operation>
+        
+        <ows:Operation name="GetRecords">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="<%= root_url %>" />
+                        <ows:Post xlink:href="<%= root_url %>">
+                        <ows:Constraint name="PostEncoding">
+                            <ows:Value>XML</ows:Value>
+                            <!-- CVD No Support for SOAP -->
+                            <!-- <ows:Value>SOAP</ows:Value> -->
+                        </ows:Constraint>
+                    </ows:Post>
+                </ows:HTTP>
+            </ows:DCP>
+            <!-- FIXME : Gets it from enum or conf -->
+            <ows:Parameter name="resultType">
+                <ows:Value>hits</ows:Value>
+                <ows:Value>results</ows:Value>
+                <ows:Value>validate</ows:Value>   
+            </ows:Parameter>
+            <ows:Parameter name="outputFormat">
+                <ows:Value>application/xml</ows:Value>   
+            </ows:Parameter>
+            <ows:Parameter name="outputSchema">
+                <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
+                <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>   
+            </ows:Parameter>
+            <ows:Parameter name="typeNames">
+                <ows:Value>csw:Record</ows:Value>
+                <ows:Value>gmd:MD_Metadata</ows:Value>   
+            </ows:Parameter>
+            <ows:Parameter name="CONSTRAINTLANGUAGE">
+                <ows:Value>FILTER</ows:Value>
+                <ows:Value>CQL_TEXT</ows:Value>    
+            </ows:Parameter>
+            <!-- CVD this seems to be a dupe of the PostEncoding above -->
+            <ows:Constraint name="PostEncoding">
+                <ows:Value>XML</ows:Value>  
+            </ows:Constraint>
+            <ows:Constraint name="SupportedISOQueryables">
+                <ows:Value>ServiceType</ows:Value> <!-- -->
+                <ows:Value>ServiceTypeVersion</ows:Value> <!-- -->
+                <ows:Value>Operation</ows:Value> <!-- -->
+                <ows:Value>GeographicDescriptionCode</ows:Value> <!-- -->
+                <ows:Value>CouplingType</ows:Value> <!-- -->
+                <ows:Value>OperatesOn</ows:Value> <!-- -->
+                <ows:Value>OperatesOnName</ows:Value> <!-- -->
+                <ows:Value>OperatesOnIdentifier</ows:Value> <!-- -->
+                <ows:Value>Format</ows:Value> <!-- -->
+                <ows:Value>OrganisationName</ows:Value> <!-- OK -->
+                <ows:Value>Type</ows:Value> <!-- -->
+                <ows:Value>ServiceType</ows:Value> <!-- -->
+                <ows:Value>ResourceLanguage</ows:Value> <!-- -->
+                <ows:Value>RevisionDate</ows:Value> <!-- -->
+                <ows:Value>AnyText</ows:Value> <!-- -->
+                <ows:Value>Modified</ows:Value> <!-- -->
+                <ows:Value>PublicationDate</ows:Value> <!-- -->
+                <ows:Value>ResourceIdentifier</ows:Value> <!-- -->
+                <ows:Value>ParentIdentifier</ows:Value> <!-- -->
+                <ows:Value>Project</ows:Value> <!-- -->
+                <ows:Value>Identifier</ows:Value> <!-- -->
+                <ows:Value>TopicCategory</ows:Value> <!-- -->
+                <ows:Value>Platform</ows:Value> <!-- -->
+                <ows:Value>TempExtent_begin</ows:Value> <!-- -->
+                <ows:Value>TempExtent_end</ows:Value> <!-- -->
+                <ows:Value>Subject</ows:Value> <!-- -->
+                <ows:Value>ScienceKeyword</ows:Value>
+                <ows:Value>Location</ows:Value> <!-- -->
+                <ows:Value>CreationDate</ows:Value> <!-- -->
+                <ows:Value>Title</ows:Value> <!-- -->
+                <ows:Value>DistanceUOM</ows:Value> <!-- -->
+                <ows:Value>DistanceValue</ows:Value> <!-- -->
+                <ows:Value>Denominator</ows:Value> <!-- -->
+                <ows:Value>AlternateTitle</ows:Value> <!-- -->
+                <ows:Value>Language</ows:Value> <!-- -->
+                <ows:Value>HasSecurityConstraints</ows:Value> <!-- -->
+                <ows:Value>Instrument</ows:Value> <!-- -->
+                <ows:Value>KeywordType</ows:Value> <!-- -->
+                <ows:Value>Abstract</ows:Value>   <!-- -->
+            </ows:Constraint>
+            <ows:Constraint name="AdditionalQueryables">
+                <ows:Value>AccessConstraints</ows:Value> <!-- -->
+                <ows:Value>OnlineResourceMimeType</ows:Value> <!-- -->
+                <ows:Value>ResponsiblePartyRole</ows:Value> <!-- -->
+                <ows:Value>OnlineResourceType</ows:Value> <!-- -->
+                <ows:Value>Lineage</ows:Value> <!-- -->
+                <ows:Value>SpecificationDate</ows:Value> <!-- -->
+                <ows:Value>ConditionApplyingToAccessAndUse</ows:Value> <!-- -->
+                <ows:Value>SpecificationDateType</ows:Value> <!-- -->
+                <ows:Value>MetadataPointOfContact</ows:Value> <!-- -->
+                <ows:Value>Classification</ows:Value> <!-- -->
+                <ows:Value>OtherConstraints</ows:Value> <!-- -->
+                <ows:Value>Degree</ows:Value> <!-- -->
+                <ows:Value>SpecificationTitle</ows:Value>  <!-- -->
+            </ows:Constraint>  
+        </ows:Operation>
+        
+        <ows:Operation name="GetRecordById">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="<%= root_url %>" />
+                        <ows:Post xlink:href="<%= root_url %>">
+                        <ows:Constraint name="PostEncoding">
+                            <ows:Value>XML</ows:Value>
+                            <!-- CVD No SOAP support for now -->
+                            <!-- <ows:Value>SOAP</ows:Value> -->
+                        </ows:Constraint>        
+                    </ows:Post>
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter name="outputSchema">
+                <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
+                <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="outputFormat">
+                <ows:Value>application/xml</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="resultType">
+                <ows:Value>hits</ows:Value>
+                <ows:Value>results</ows:Value>
+                <ows:Value>validate</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="ElementSetName">
+                <ows:Value>brief</ows:Value>
+                <ows:Value>summary</ows:Value>
+                <ows:Value>full</ows:Value>   
+            </ows:Parameter>
+            <ows:Constraint name="PostEncoding">
+                <ows:Value>XML</ows:Value>     
+            </ows:Constraint>
+        </ows:Operation>
+        <!--
+        <ows:Operation name="Transaction"><ows:DCP><ows:HTTP><ows:Get  xlink:href="http://$HOST/csw" /><ows:Post xlink:href="http://$HOST/csw"  />
+				</ows:HTTP>
+			</ows:DCP>
+		</ows:Operation>
+        -->
+        <!--		
+		<ows:Operation name="Harvest"><ows:DCP><ows:HTTP><ows:Get  xlink:href="http://$HOST/csw" /><ows:Post xlink:href="http://$HOST/csw"  />
+				</ows:HTTP>
+			</ows:DCP>
+		</ows:Operation>
+        -->
+        <ows:Parameter name="service">
+            <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value> 
+        </ows:Parameter>
+        <ows:Parameter name="version">
+            <ows:Value>2.0.2</ows:Value>
+        </ows:Parameter>
+        <ows:Constraint name="IsoProfiles">
+            <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>
+        </ows:Constraint>
+        <!-- CVD No Post encoding needed  not sure why it is here though
+        <ows:Constraint name="PostEncoding">
+            <ows:Value>SOAP</ows:Value>
+        </ows:Constraint> -->
+    </ows:OperationsMetadata>
+    
+    <ogc:Filter_Capabilities>
+        <ogc:Spatial_Capabilities>
+            <ogc:GeometryOperands>
+                <ogc:GeometryOperand>gml:Envelope</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:Point</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:LineString</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:Polygon</ogc:GeometryOperand>  
+            </ogc:GeometryOperands>
+            <ogc:SpatialOperators>
+                <ogc:SpatialOperator name="BBOX" />
+                <ogc:SpatialOperator name="Equals" />
+                <ogc:SpatialOperator name="Overlaps" />
+                <ogc:SpatialOperator name="Disjoint" />
+                <ogc:SpatialOperator name="Intersects" />
+                <ogc:SpatialOperator name="Touches" />
+                <ogc:SpatialOperator name="Crosses" />
+                <ogc:SpatialOperator name="Within" />
+                <ogc:SpatialOperator name="Contains" />
+            </ogc:SpatialOperators>
+        </ogc:Spatial_Capabilities>
+        
+        <ogc:Scalar_Capabilities>
+            <ogc:LogicalOperators />
+            <ogc:ComparisonOperators>
+                <ogc:ComparisonOperator>EqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>Like</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>LessThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>GreaterThan</ogc:ComparisonOperator>
+                <!-- LessThanOrEqualTo is in OGC Filter Spec, LessThanEqualTo is in OGC CSW schema -->
+                <ogc:ComparisonOperator>LessThanEqualTo</ogc:ComparisonOperator>
+                <!-- CVD comment out for schema validation -->
+                <!-- <ogc:ComparisonOperator>LessThanOrEqualTo</ogc:ComparisonOperator>  -->
+                <!-- GreaterThanOrEqualTo is in OGC Filter Spec, GreaterThanEqualTo is in OGC CSW schema -->
+                <ogc:ComparisonOperator>GreaterThanEqualTo</ogc:ComparisonOperator>
+                <!-- CVD comment out for schema validation -->
+                <!-- <ogc:ComparisonOperator>GreaterThanOrEqualTo</ogc:ComparisonOperator> -->
+                <ogc:ComparisonOperator>NotEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>Between</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>NullCheck</ogc:ComparisonOperator>
+                <!-- FIXME : Check NullCheck operation is available -->
+            </ogc:ComparisonOperators>
+        </ogc:Scalar_Capabilities>
+        <ogc:Id_Capabilities>
+            <ogc:EID />
+            <ogc:FID />
+        </ogc:Id_Capabilities>
+    </ogc:Filter_Capabilities>
+</csw:Capabilities>
+
+

@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cmr.earthdata.nasa.gov/search/collections?concept_id%5B%5D=foo&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geoss.geoss_data-core
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/iso19115+xml
+      Accept-Encoding:
+      - gzip, deflate
+      Client-Id:
+      - cmr_csw
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 12 Apr 2016 16:14:22 GMT
+      Content-Type:
+      - application/xml; charset=ISO-8859-1
+      Access-Control-Allow-Origin:
+      - "*"
+      Cmr-Request-Id:
+      - 81219bf8-8dc9-4a98-8f13-3a97636d346e
+      Content-Length:
+      - '100'
+      Server:
+      - Jetty(9.2.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><errors><error>Concept-id [foo]
+        is not valid.</error></errors>
+    http_version: 
+  recorded_at: Tue, 12 Apr 2016 16:14:22 GMT
+recorded_with: VCR 3.0.1
