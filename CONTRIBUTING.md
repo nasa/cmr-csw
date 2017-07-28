@@ -1,7 +1,6 @@
 # Making changes
 
 Thanks for contributing!
-
 To allow us to incorporate your changes, please use the following process:
 
 1. Fork this repository to your personal account.
