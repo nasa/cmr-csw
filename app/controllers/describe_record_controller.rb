@@ -16,7 +16,6 @@ class DescribeRecordController < ApplicationController
     end
     request.body.rewind
     body = request.body.read
-
     Rails.logger.info log_performance('DescribeRecord', time, nil, body)
   end
 end
