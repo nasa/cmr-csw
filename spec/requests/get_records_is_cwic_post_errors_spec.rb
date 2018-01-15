@@ -32,7 +32,7 @@ describe "GetRecords IsCwic error cases for POST requests" do
       expect(exception_node_set[0]['exceptionCode']).to eq('NoApplicableCode')
       expect(exception_node_set[0]['locator']).to eq('NoApplicableCode')
       exception_text = exception_node_set[0].at_xpath('//ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows')
-      expect(exception_text.text).to eq("Could not parse the GetRecords request body XML: Opening and ending tag mismatch: Constraint line 9 and ConstraintBAD_BAD_BAD")
+      expect(exception_text.text).to eq("Could not parse the GetRecords request body XML: 16:37: FATAL: Opening and ending tag mismatch: Constraint line 9 and ConstraintBAD_BAD_BAD")
     end
   end
 

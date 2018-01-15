@@ -140,7 +140,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable error scenarios', :type
     expect(exception_node_set[0]['exceptionCode']).to eq('NoApplicableCode')
     expect(exception_node_set[0]['locator']).to eq('NoApplicableCode')
     exception_text = exception_node_set[0].at_xpath('ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows')
-    expect(exception_text.text).to include("Could not parse the GetDomain request body XML: Opening and ending tag mismatch: PropertyName line 9 and MALFORMEDPropertyName")
+    expect(exception_text.text).to include("Could not parse the GetDomain request body XML: 9:59: FATAL: Opening and ending tag mismatch: PropertyName line 9 and MALFORMEDPropertyName")
   end
 
   it 'correctly renders the exception response for a GetDomain with a blank PropertyName' do
