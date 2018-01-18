@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
 gem 'rails', '4.2.7.1'
 gem 'unicorn'
