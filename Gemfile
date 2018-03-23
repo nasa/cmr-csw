@@ -47,5 +47,3 @@ group :production, :sit, :uat do
   gem 'rails_12factor'
 end
 
-gem 'bundler-audit'
-
