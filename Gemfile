@@ -3,15 +3,14 @@ ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
 gem 'rails', '4.2.7.1'
 gem 'unicorn'
-#gem 'jquery-rails', '~> 3.0.4'
 gem 'jquery-rails', '~> 3.1.3'
-gem 'nokogiri', '1.8.2'
+gem 'nokogiri', '>= 1.8.3'
 gem 'rest-client', '~> 1.8.0'
 gem 'rgeo'
 gem 'georuby'
 # DSL grammar parsing and interpreting (used for CQL)
 gem 'parslet'
-gem 'bundler-audit'
+
 gem 'responders', '~> 2.0'
 
 group :assets do
@@ -47,3 +46,4 @@ group :production, :sit, :uat do
   gem 'rails_12factor'
 end
 
+gem 'bundler-audit'
