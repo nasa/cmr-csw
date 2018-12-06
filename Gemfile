@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.11'
 gem 'unicorn'
 gem 'jquery-rails', '~> 3.1.3'
 gem 'nokogiri', '>= 1.8.5'
