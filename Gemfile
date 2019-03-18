@@ -1,16 +1,19 @@
 source 'https://rubygems.org'
+ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
 gem 'rails', '>= 4.2.11.1'
 gem 'unicorn'
-gem 'jquery-rails'
-gem 'nokogiri'
+gem 'jquery-rails', '~> 3.1.3'
+gem 'nokogiri', '>= 1.8.5'
 gem 'rest-client', '~> 1.8.0'
 gem 'rgeo'
 gem 'georuby'
 # DSL grammar parsing and interpreting (used for CQL)
 gem 'parslet'
-gem 'bundler-audit'
+
 gem 'responders', '~> 2.0'
+gem 'loofah', '>= 2.2.3'
+gem 'rack', '~> 1.6.11'
 
 group :assets do
   gem 'sass-rails'
