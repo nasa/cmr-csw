@@ -9,7 +9,7 @@ gem 'rest-client', '~> 1.8.0'
 gem 'rgeo'
 gem 'georuby'
 # DSL grammar parsing and interpreting (used for CQL)
-gem 'parslet'
+gem 'parslet', '~> 1.7.1'
 
 gem 'responders', '~> 2.0'
 gem 'loofah', '>= 2.2.3'
