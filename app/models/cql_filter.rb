@@ -32,7 +32,7 @@ class CqlFilter
       parser_results = cql_parser.parse(@constraint)
       process_parser_results(parser_results)
     rescue Parslet::ParseFailed => error
-      parser_error = error.cause.ascii_tree
+      parser_error = error.parse_failure_cause.ascii_tree
       error_message = "The value for 'constraint' query parameter is not supported and cannot be parsed: #{parser_error}"
       Rails.logger.error(error_message)
       raise OwsException.new('constraint', error_message)
