@@ -30,8 +30,6 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
   config.assets.precompile =  %w[*.js *.css *.css.erb *.png *.jpg *.jpeg *.gif]
-  #config.assets.prefix = '/csw/assets'
-
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
