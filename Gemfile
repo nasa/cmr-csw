@@ -5,7 +5,7 @@ gem 'rails', '>= 4.2.11.1'
 gem 'unicorn'
 gem 'jquery-rails', '~> 3.1.3'
 gem 'nokogiri', '>= 1.10.3'
-gem 'rest-client', '~> 1.8.0'
+gem 'rest-client', '~> 2.0.2'
 gem 'rgeo'
 gem 'georuby'
 # DSL grammar parsing and interpreting (used for CQL)
