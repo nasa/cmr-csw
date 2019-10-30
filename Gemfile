@@ -12,7 +12,7 @@ gem 'georuby'
 gem 'parslet'
 
 gem 'responders', '~> 2.0'
-gem 'loofah', '>= 2.2.3'
+gem 'loofah', '>= 2.3.1'
 gem 'rack', '~> 1.6.11'
 
 group :assets do
