@@ -14,6 +14,7 @@ gem 'parslet'
 gem 'responders', '~> 2.0'
 gem 'loofah', '>= 2.3.1'
 gem 'rack', '~> 1.6.11'
+gem 'rake', '12.3.3'
 
 group :assets do
   gem 'sass-rails'
