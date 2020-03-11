@@ -15,6 +15,8 @@ gem 'responders', '~> 2.0'
 gem 'loofah', '>= 2.3.1'
 gem 'rack', '~> 1.6.11'
 gem 'rake', '12.3.3'
+gem 'sprockets', '3.7.2'
+gem 'sass', '3.7.4'
 
 group :assets do
   gem 'sass-rails'
