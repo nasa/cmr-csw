@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
+gem 'sass-rails'
 gem 'rails', '>= 4.2.11.1'
 gem 'unicorn'
 gem 'jquery-rails', '~> 3.1.3'
@@ -15,9 +16,9 @@ gem 'responders', '~> 2.0'
 gem 'loofah', '>= 2.3.1'
 gem 'rack', '~> 1.6.11'
 gem 'rake', '12.3.3'
+gem 'sprockets', '3.7.2'
 
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
   gem 'execjs'
   gem 'therubyracer'
