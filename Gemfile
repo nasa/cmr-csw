@@ -11,12 +11,13 @@ gem 'rgeo'
 gem 'georuby'
 # DSL grammar parsing and interpreting (used for CQL)
 gem 'parslet'
-
 gem 'responders', '~> 2.0'
 gem 'loofah', '>= 2.3.1'
-gem 'rack', '~> 1.6.11'
+gem 'rack', '~> 2.x'
 gem 'rake', '12.3.3'
 gem 'sprockets', '3.7.2'
+gem 'actionview', '> 4.2.11.1'
+gem 'rails-controller-testing'
 
 group :assets do
   gem 'coffee-rails'
@@ -35,7 +36,7 @@ group :profile do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+	gem 'rspec-rails'
   gem 'rspec_junit_formatter'
 end
 

@@ -102,7 +102,7 @@ RSpec.describe "various GetRecords GET requests with NO CONSTRAINTS", :type => :
 
   it 'returns ONLY the CWIC datasets if the originator is CWICSmart' do
     VCR.use_cassette 'requests/get_records/gmi/originator_cwic_get', :decode_compressed_response => true, :record => :once do
-      get '/collections', :service => 'CSW', :request => 'GetRecords', :version => '2.0.2', :ElementSetName => 'summary', :resultType => 'results', headers: { "From-Cwic-Smart" => "Y" }
+      get '/collections', params: { :service => 'CSW', :request => 'GetRecords', :version => '2.0.2', :ElementSetName => 'summary', :resultType => 'results' }, headers: { "From-Cwic-Smart" => "Y" }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -112,7 +112,7 @@ RSpec.describe "various GetRecords GET requests with NO CONSTRAINTS", :type => :
                                     'csw' => 'http://www.opengis.net/cat/csw/2.0.2').size).to eq(10)
       # we have a total of 32166 datasets (from which a subset of 1798 are CWIC datasets)
       expect(records_xml.root.xpath('/csw:GetRecordsResponse/csw:SearchResults/@numberOfRecordsMatched', 'gmi' => 'http://www.isotc211.org/2005/gmi',
-                                    'csw' => 'http://www.opengis.net/cat/csw/2.0.2').first.value).to eq("1798")
+                                    'csw' => 'http://www.opengis.net/cat/csw/2.0.2').first.value).to eq("3169")
     end
   end
 
