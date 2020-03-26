@@ -4,8 +4,8 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
 
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic BBOX constraint GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'BoundingBox=-180.00,-90.00,180.000,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'BoundingBox=-180.00,-90.00,180.000,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -18,9 +18,9 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
 
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic BBOX and AnyText constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_2', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results', :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -35,10 +35,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # search/collections?bounding_box=-180.00,-90.00,180.000,90&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geo.geoss_data-core&keyword=MODIS&temporal=1990-09-03T00:00:01Z/
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic BBOX AnyText, TempExtent_begin constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_3', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -53,10 +53,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # search/collections?bounding_box=-180.00,-90.00,180.000,90&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geo.geoss_data-core&keyword=MODIS&temporal=/2008-09-06T23:59:59Z
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic BBOX AnyText, TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_4', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -71,10 +71,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # search/collections?bounding_box=-180.00,-90.00,180.000,90&include_tags=org.ceos.wgiss.cwic.granules.prod,org.geo.geoss_data-core&keyword=MODIS&temporal=1990-09-03T00:00:01Z/2008-09-06T23:59:59Z
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -89,10 +89,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # :outputSchema => 'http://www.isotc211.org/2005/gmi'
   it 'correctly renders RESULTS FULL ISO MENDS (gmi based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.isotc211.org/2005/gmi'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.isotc211.org/2005/gmi' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -107,10 +107,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # :outputSchema => 'http://www.isotc211.org/2005/gmd'
   it 'correctly renders RESULTS FULL ISO GMD (gmi based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.isotc211.org/2005/gmd'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.isotc211.org/2005/gmd' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -125,10 +125,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2'
   it 'correctly renders RESULTS FULL CSW (based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -144,10 +144,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # CSW BRIEF
   it 'correctly renders RESULTS BRIEF CSW (based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -163,10 +163,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # CSW SUMMARY
   it 'correctly renders RESULTS SUMMARY CSW (based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -182,10 +182,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # hits vs results
   it 'correctly renders HITS CSW (based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_5', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'hits',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -208,10 +208,10 @@ RSpec.describe "various successful GetRecords GET requests with BoundingBox, Tim
   # startPosition, maxRecords
   it 'correctly renders HITS with startPosition, maxRecords, CSW (based on output schema) data in response to a basic BBOX AnyText, TempExtent_begin and TempExtent_end constraints GET request' do
     VCR.use_cassette 'requests/get_records/gmi/bbox_6', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'hits', :startPosition => 47, :maxRecords => 53,
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=MODIS and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

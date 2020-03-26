@@ -4,12 +4,12 @@ RSpec.describe GetRecordsController, type: :controller do
 
   describe 'GetRecords GET requests' do
     it "returns bad request for a GET request with an invalid 'service' parameter" do
-      get :index, :request => 'GetRecords', :service => 'BAD', :version => '2.0.2'
+      get :index, :params => { :request => 'GetRecords', :service => 'BAD', :version => '2.0.2' }
       expect(response).to have_http_status(:bad_request)
     end
 
     it "returns bad request for a GET request with an invalid 'version' parameter" do
-      get :index, :request => 'GetRecords', :service => 'CSW', :version => 'BAD_VERSION'
+      get :index, :params => { :request => 'GetRecords', :service => 'CSW', :version => 'BAD_VERSION' }
       expect(response).to have_http_status(:bad_request)
     end
   end
@@ -44,7 +44,7 @@ RSpec.describe GetRecordsController, type: :controller do
     </csw:Query>
 </csw:GetRecords>
         eos
-        post :index, valid_get_records_request_xml
+        post :index, body: valid_get_records_request_xml
         expect(response).to have_http_status(:success)
       end
     end

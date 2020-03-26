@@ -2,8 +2,8 @@ RSpec.describe "various successful GetRecords GET requests with the ArchiveCente
 
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to an ArchiveCenter IsGeoss constraint GET request' do
     VCR.use_cassette 'requests/get_records/gmi/dhs_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'ArchiveCenter=DHS* and IsGeoss=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'ArchiveCenter=DHS* and IsGeoss=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -26,8 +26,8 @@ RSpec.describe "various successful GetRecords GET requests with the ArchiveCente
 
   it 'correctly renders HITS data in response to an ArchiveCenter IsGeoss constraint and resultType HITS GET request' do
     VCR.use_cassette 'requests/get_records/gmi/dhs_2', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :constraint => 'ArchiveCenter=DHS* and IsGeoss=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT', :resultType => 'hits'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :constraint => 'ArchiveCenter=DHS* and IsGeoss=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT', :resultType => 'hits' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "Modified" queryable success scenarios', :type => :request do
 
   it 'correctly renders the response for the Modified PropertyName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Modified'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Modified' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -17,7 +17,7 @@ RSpec.describe 'GetDomain http GET "Modified" queryable success scenarios', :typ
   end
 
   it 'correctly renders the response for TempExtent_begin,TempExtent_end,Modified properties' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end, Modified'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end, Modified' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -46,7 +46,7 @@ RSpec.describe 'GetDomain http GET "Modified" queryable success scenarios', :typ
   end
 
   it 'correctly renders the response for Modified and an unknown property' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Modified,UNKNOWN_PROPERTY'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Modified,UNKNOWN_PROPERTY' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -69,7 +69,7 @@ end
 
 RSpec.describe 'GetDomain http GET "Modified" queryable error scenarios', :type => :request do
   it 'correctly renders the exception response for a GetDomain without a service and version' do
-    get '/collections', :request => 'GetDomain', :PropertyName => 'Modified'
+    get '/collections', :params => {  :request => 'GetDomain', :PropertyName => 'Modified' }
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)

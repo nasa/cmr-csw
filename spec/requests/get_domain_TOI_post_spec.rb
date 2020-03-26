@@ -15,7 +15,7 @@ RSpec.describe 'GetDomain http POST TOI (TempExtent_begin and TempExtent_end que
     <PropertyName>TempExtent_begin</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -41,7 +41,7 @@ RSpec.describe 'GetDomain http POST TOI (TempExtent_begin and TempExtent_end que
     <PropertyName>TempExtent_end</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -67,7 +67,7 @@ RSpec.describe 'GetDomain http POST TOI (TempExtent_begin and TempExtent_end que
     <PropertyName>UNKNOWN_PROPERTY</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -94,7 +94,7 @@ RSpec.describe 'GetDomain http POST TOI (TempExtent_begin and TempExtent_end que
     <PropertyName>TempExtent_end</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)

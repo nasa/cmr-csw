@@ -2,8 +2,8 @@ describe "GetRecords IsCwic error cases for GET requests" do
 
   it 'correctly renders the exception page in response to an invalid IsCwic value in the POST request' do
     VCR.use_cassette 'requests/get_records/gmi/iscwic_error1', :decode_compressed_response => true, :record => :once do
-    get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-        :resultType => 'results', :constraint => 'IsCwic=True', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+    get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+        :resultType => 'results', :constraint => 'IsCwic=True', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -19,8 +19,8 @@ describe "GetRecords IsCwic error cases for GET requests" do
 
   it 'correctly renders the exception page in when there is NO IsCwic value in the POST request' do
     VCR.use_cassette 'requests/get_records/gmi/iscwic_error2', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'IsCwic', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'IsCwic', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'

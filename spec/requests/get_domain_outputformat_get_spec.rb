@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "outputFormat" request parameter success scenarios', :type => :request do
 
   it 'correctly renders the response for the outputFormat ParameterName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.outputFormat'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.outputFormat' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -17,7 +17,7 @@ RSpec.describe 'GetDomain http GET "outputFormat" request parameter success scen
   end
 
   it 'correctly renders the response for outputFormat and an unknown parameter' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.outputFormat,UNKNOWN_PARAMETER'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.outputFormat,UNKNOWN_PARAMETER' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)

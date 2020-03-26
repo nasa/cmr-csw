@@ -4,8 +4,8 @@ RSpec.describe "various ERROR scenarios for GetRecords GET requests with Boundin
 
   it 'correctly detects an invalid syntax for a BoundingBox GET request' do
     VCR.use_cassette 'requests/get_records/gmi/error_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'BoundingBox=-180.00 ,-90.00  ,180.000,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'BoundingBox=-180.00 ,-90.00  ,180.000,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -22,8 +22,8 @@ RSpec.describe "various ERROR scenarios for GetRecords GET requests with Boundin
   # invalid queryable bbox values (bbox validation is left to CMR for now)
   it 'correctly detects an invalid BoundingBox value for a GetRecords GET request' do
     VCR.use_cassette 'requests/get_records/gmi/error_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'BoundingBox=-185.00,-91.00,180.3460,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'BoundingBox=-185.00,-91.00,180.3460,90', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -40,8 +40,8 @@ RSpec.describe "various ERROR scenarios for GetRecords GET requests with Boundin
   # TOI syntax in local, TOI begin vs. end positioning is in CMR
   it 'correctly detects an invalid syntax for a TempExtent_begin GET request' do
     VCR.use_cassette 'requests/get_records/gmi/error_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'TempExtent_begin=1990-09-03BAD00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'TempExtent_begin=1990-09-03BAD00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -57,8 +57,8 @@ RSpec.describe "various ERROR scenarios for GetRecords GET requests with Boundin
 
   it 'correctly detects an invalid syntax for a TempExtent_end GET request' do
     VCR.use_cassette 'requests/get_records/gmi/error_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'TempExtent_end=1990-09-03BAD00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'TempExtent_end=1990-09-03BAD00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -74,8 +74,8 @@ RSpec.describe "various ERROR scenarios for GetRecords GET requests with Boundin
 
   it 'correctly detects an invalid TempExtent_end relative to TempExtent_begin' do
     VCR.use_cassette 'requests/get_records/gmi/error_2', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=1989-09-03T00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=1989-09-03T00:00:01Z', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)

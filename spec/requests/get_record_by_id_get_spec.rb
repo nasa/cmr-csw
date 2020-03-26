@@ -4,7 +4,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMI' do
     it 'correctly renders single ISO GMI record as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -14,7 +14,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     end
     it 'correctly renders two ISO GMI records as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/two_records', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI,C1224520058-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI,C1224520058-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -25,7 +25,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
   it 'correctly renders zero ISO GMI records when unknown concept id is supplied' do
     VCR.use_cassette 'requests/get_record_by_id/gmi/no_record', :decode_compressed_response => true, :record => :once do
-      get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+      get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_record_by_id/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -36,7 +36,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
   it 'correctly renders single ISO GMI record as full with output file format application/xml' do
     VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-      get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full', :outputFormat => 'application/xml'
+      get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full', :outputFormat => 'application/xml' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_record_by_id/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -46,7 +46,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
 
   it 'correctly reports an error when no id parameter is present' do
-    get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+    get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -57,7 +57,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
 
   it 'correctly reports an error when an incorrect version is requested' do
-    get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.x', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+    get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.x', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -67,7 +67,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     expect(exception_xml.root.xpath('/ows:ExceptionReport/ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows').text).to eq("version '2.0.x' is not supported. Supported version is '2.0.2'")
   end
   it 'correctly reports an error when an incorrect service is requested' do
-    get '/collections', :service => 'foo', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+    get '/collections', :params => {  :service => 'foo', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -78,7 +78,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
 
   it 'correctly reports an error when an incorrect output schema is requested' do
-    get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'foo', :ElementSetName => 'full'
+    get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'foo', :ElementSetName => 'full' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -90,7 +90,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
 
   it 'correctly reports an error when an incorrect element set name is requested' do
-    get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'foo'
+    get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'foo' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -101,7 +101,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
 
   end
   it 'correctly reports an error when an incorrect output file format' do
-    get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :outputFormat => 'foo'
+    get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmi', :outputFormat => 'foo' }
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -115,7 +115,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using CSW brief' do
     it 'correctly renders single CSW record as brief' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -136,7 +136,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMI brief' do
     it 'correctly renders single CSW record as brief' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -154,7 +154,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using CSW summary' do
     it 'correctly renders single CSW record as summary' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -180,7 +180,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMI summary' do
     it 'correctly renders single CSW record as summary' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -199,7 +199,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMI full' do
     it 'correctly renders single CSW record as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmi', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -227,7 +227,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using CSW full' do
     it 'correctly renders single CSW record as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/isro_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1214622565-ISRO', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1214622565-ISRO', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -257,7 +257,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMD' do
     it 'correctly renders single ISO GMD record as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -268,7 +268,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     end
     it 'correctly renders two ISO GMD records as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/two_records', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI,C1224520058-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI,C1224520058-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -280,7 +280,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
   it 'correctly renders zero ISO GMD records when unknown concept id is supplied' do
     VCR.use_cassette 'requests/get_record_by_id/gmi/no_record', :decode_compressed_response => true, :record => :once do
-      get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+      get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'foo', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_record_by_id/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -292,7 +292,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   end
   it 'correctly renders single ISO GMD record as full with output file format application/xml' do
     VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-      get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full', :outputFormat => 'application/xml'
+      get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full', :outputFormat => 'application/xml' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_record_by_id/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -305,7 +305,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMD brief' do
     it 'correctly renders single CSW record as brief' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -323,7 +323,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMD summary' do
     it 'correctly renders single CSW record as summary' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -343,7 +343,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById using ISO GMD full' do
     it 'correctly renders single CSW record as full' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -371,7 +371,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO full with CWIC' do
     it 'correctly renders single ISO record as full with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -386,7 +386,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO full without CWIC' do
     it 'correctly renders single ISO record as full without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -400,7 +400,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO summary with CWIC' do
     it 'correctly renders single ISO record as summary with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -415,7 +415,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO summary without CWIC' do
     it 'correctly renders single ISO record as summary without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -429,7 +429,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO brief with CWIC' do
     it 'correctly renders single ISO record as brief with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -444,7 +444,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO brief without CWIC' do
     it 'correctly renders single ISO record as brief without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -458,7 +458,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW full with CWIC' do
     it 'correctly renders single CSW record as full with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -471,7 +471,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW full without CWIC' do
     it 'correctly renders single CSW record as full without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -484,7 +484,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW summary with CWIC' do
     it 'correctly renders single CSW record as summary with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -496,7 +496,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW summary without CWIC' do
     it 'correctly renders single CSW record as summary without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -507,7 +507,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW brief with CWIC' do
     it 'correctly renders single CSW record as brief with CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/cwic_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -521,7 +521,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById CSW brief without CWIC' do
     it 'correctly renders single CSW record as brief without CWIC' do
       VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-        get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+        get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -537,7 +537,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
   describe 'GET GetRecordById ISO full with GEOSS' do
       it 'correctly renders single ISO record as full with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -551,7 +551,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById ISO full without GEOSS' do
       it 'correctly renders single ISO record as full without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'full' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -564,7 +564,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById ISO summary with GEOSS' do
       it 'correctly renders single ISO record as summary with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -578,7 +578,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById ISO summary without GEOSS' do
       it 'correctly renders single ISO record as summary without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'summary' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -591,7 +591,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById ISO brief with GEOSS' do
       it 'correctly renders single ISO record as brief with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -605,7 +605,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById ISO brief without GEOSS' do
       it 'correctly renders single ISO record as brief without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.isotc211.org/2005/gmd', :ElementSetName => 'brief' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -618,7 +618,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW full with GEOSS' do
       it 'correctly renders single CSW record as full with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -630,7 +630,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW full without GEOSS' do
       it 'correctly renders single CSW record as full without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'full' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -642,7 +642,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW summary with GEOSS' do
       it 'correctly renders single CSW record as summary with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -654,7 +654,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW summary without GEOSS' do
       it 'correctly renders single CSW record as summary without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'summary' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -665,7 +665,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW brief with GEOSS' do
       it 'correctly renders single CSW record as brief with GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/geoss_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1000000247-DEMO_PROV', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)
@@ -678,7 +678,7 @@ RSpec.describe 'Get Record By ID http GET specs', :type => :request do
     describe 'GET GetRecordById CSW brief without GEOSS' do
       it 'correctly renders single CSW record as brief without GEOSS' do
         VCR.use_cassette 'requests/get_record_by_id/gmi/one_record', :decode_compressed_response => true, :record => :once do
-          get '/collections', :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief'
+          get '/collections', :params => {  :service => 'CSW', :request => 'GetRecordById', :version => '2.0.2', :id => 'C1224520098-NOAA_NCEI', :outputSchema => 'http://www.opengis.net/cat/csw/2.0.2', :ElementSetName => 'brief' }
           expect(response).to have_http_status(:success)
           expect(response).to render_template('get_record_by_id/index.xml.erb')
           records_xml = Nokogiri::XML(response.body)

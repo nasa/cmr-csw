@@ -18,7 +18,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:ok)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -54,7 +54,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>csw:Record</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -76,7 +76,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmi:MI_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -98,7 +98,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -121,7 +121,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmi:MI_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
       expect(response_xml.root.name).to eq 'DescribeRecordResponse'
@@ -144,7 +144,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>foo:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -166,7 +166,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmi:MI_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('describe_record/index.xml.erb')
       response_xml = Nokogiri::XML(response.body)
@@ -192,7 +192,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -221,7 +221,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -243,7 +243,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>abc:MI_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -266,7 +266,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmi:foo</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -288,7 +288,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:foo</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -310,7 +310,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>csw:foo</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -332,7 +332,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmi:Record</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -354,7 +354,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>gmd:MI_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -365,7 +365,6 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     end
 
     it 'returns an error when there is an invalid (not supported) TypeName from the csw namespace' do
-      #get '/collections', :request => 'DescribeRecord', :service => 'CSW', :version => '2.0.2', :NAMESPACE => 'xmlns(csw=http://www.opengis.net/cat/csw/2.0.2)', :TypeName => 'csw:MD_Metadata'
       post_xml = <<-eos
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <DescribeRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -377,7 +376,7 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
     <TypeName>csw:MD_Metadata</TypeName>
 </DescribeRecord>
       eos
-      post '/collections', post_xml
+      post '/collections', :params => post_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -387,5 +386,5 @@ RSpec.describe 'DescribeRecord POST examples', :type => :request do
       expect(exception_xml.root.xpath('/ows:ExceptionReport/ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows').text).to eq("'MD_Metadata' is not part of the http://www.opengis.net/cat/csw/2.0.2 schema")
     end
   end
-  
+
 end

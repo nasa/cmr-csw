@@ -26,7 +26,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -64,7 +64,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
       </csw:Query>
   </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -99,7 +99,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
       </csw:Query>
   </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -134,7 +134,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
         </csw:Query>
     </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -169,7 +169,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
       </csw:Query>
   </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -204,7 +204,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
       </csw:Query>
   </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -239,7 +239,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
         </csw:Query>
     </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -274,7 +274,7 @@ RSpec.describe 'GetRecords CWIC functionality', :type => :request do
         </csw:Query>
     </csw:GetRecords>
       eos
-      post '/collections', request_xml
+      post '/collections', :params => request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

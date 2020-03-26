@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "GetRecordById.ElementSetName" request parameter success scenarios', :type => :request do
 
   it 'correctly renders the response for the GetRecordById.ElementSetName ParameterName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecordById.ElementSetName'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecordById.ElementSetName' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)

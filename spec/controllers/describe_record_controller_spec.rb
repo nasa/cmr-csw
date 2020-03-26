@@ -4,7 +4,7 @@ RSpec.describe DescribeRecordController, type: :controller do
 
   describe 'GET #index' do
     it 'returns http success' do
-      get :index, :request => 'DescribeRecord', :service => 'CSW', :version => '2.0.2'
+      get :index, :params => { :request => 'DescribeRecord', :service => 'CSW', :version => '2.0.2' }
       expect(response).to have_http_status(:success)
     end
   end

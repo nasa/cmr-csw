@@ -4,17 +4,17 @@ RSpec.describe GetCapabilitiesController, type: :controller do
 
   describe 'GetCapabilities GET requests' do
     it 'returns http success for a valid GET request' do
-      get :index, :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2'
+      get :index, :params => { :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2' }
       expect(response).to have_http_status(:success)
     end
 
     it 'returns bad request for a GET request with an invalid \'service\' parameter' do
-      get :index, :request => 'GetCapabilities', :service => 'BAD', :version => '2.0.2'
+      get :index, :params => { :request => 'GetCapabilities', :service => 'BAD', :version => '2.0.2' }
       expect(response).to have_http_status(:bad_request)
     end
 
     it 'returns bad request for a GET request with an invalid \'version\' parameter' do
-      get :index, :request => 'GetCapabilities', :service => 'CSW', :version => 'BAD_VERSION'
+      get :index, :params => { :request => 'GetCapabilities', :service => 'CSW', :version => 'BAD_VERSION' }
       expect(response).to have_http_status(:bad_request)
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe GetCapabilitiesController, type: :controller do
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" service="CSW" version="2.0.2">
 </csw:GetCapabilities>
 eos
-      post :index, valid_get_capabilities_request_xml
+      post :index, body: valid_get_capabilities_request_xml
       expect(response).to have_http_status(:success)
     end
   end

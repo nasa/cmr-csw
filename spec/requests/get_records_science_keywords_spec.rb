@@ -22,7 +22,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', constraint_get_records_request_xml
+      post '/collections', :params => constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -63,7 +63,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', constraint_get_records_request_xml
+      post '/collections', :params => constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -121,7 +121,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', constraint_get_records_request_xml
+      post '/collections', :params => constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -206,7 +206,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', constraint_get_records_request_xml
+      post '/collections', :params => constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -297,7 +297,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', combined_constraint_get_records_request_xml
+      post '/collections', :params => combined_constraint_get_records_request_xml
       # Generated CMR query is:
       # https://cmr.earthdata.nasa.gov/search/collections?bounding_box=-180,-90,180,90&entry_title=*MODIS*&
       # options[entry_title][pattern]=true&
@@ -347,7 +347,7 @@ RSpec.describe "various GetRecords POST requests based on the ScienceKeywords qu
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', constraint_get_records_request_xml
+      post '/collections', :params => constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
