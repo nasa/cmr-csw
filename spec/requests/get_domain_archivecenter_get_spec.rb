@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "ArchiveCenter" queryable success scenarios', :type => :request do
 
   it 'correctly renders the response for the ArchiveCenter PropertyName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'ArchiveCenter'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'ArchiveCenter' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -19,7 +19,7 @@ RSpec.describe 'GetDomain http GET "ArchiveCenter" queryable success scenarios',
   end
 
   it 'correctly renders the response for TempExtent_begin,TempExtent_end,Modified, Archive properties' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end, Modified, ArchiveCenter'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end, Modified, ArchiveCenter' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -57,7 +57,7 @@ RSpec.describe 'GetDomain http GET "ArchiveCenter" queryable success scenarios',
   end
 
   it 'correctly renders the response for Platform and an unknown property' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'ArchiveCenter,UNKNOWN_PROPERTY'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'ArchiveCenter,UNKNOWN_PROPERTY' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)

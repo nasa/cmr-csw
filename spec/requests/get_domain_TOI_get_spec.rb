@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end queryables) success scenarios', :type => :request do
 
   it 'correctly renders the response for the TempExtent_begin PropertyName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -17,7 +17,7 @@ RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end quer
   end
 
   it 'correctly renders the response for the TempExtent_end PropertyName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_end'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_end' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -31,7 +31,7 @@ RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end quer
   end
 
   it 'correctly renders the response for an unknown property' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'UNKNOWN_PROPERTY'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'UNKNOWN_PROPERTY' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -44,7 +44,7 @@ RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end quer
   end
 
   it 'correctly renders the response for both TempExtent_begin and TempExtent_end properties' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -64,7 +64,7 @@ RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end quer
   end
 
   it 'correctly renders the response for TempExtent_begin,TempExtent_end and an unknown properties' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end,UNKNOWN_PROPERTY'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,TempExtent_end,UNKNOWN_PROPERTY' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -92,7 +92,7 @@ RSpec.describe 'GetDomain http GET TOI (TempExtent_begin and TempExtent_end quer
 
   it 'correctly renders the response for both TempExtent_begin and TempExtent_end with comma anad whitespace separator' do
     # notice whitespace in PropertyName string
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,    TempExtent_end'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'TempExtent_begin,    TempExtent_end' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -115,7 +115,7 @@ end
 RSpec.describe 'GetDomain http GET (TempExtent_begin and TempExtent_end queryables) error scenarios', :type => :request do
   # :propertyName should be :PropertyName
   it 'correctly renders the exception response for a GetDomain without a PropertyName query parameter' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :propertyName => 'TempExtent_begin'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :propertyName => 'TempExtent_begin' }
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)
@@ -129,7 +129,7 @@ RSpec.describe 'GetDomain http GET (TempExtent_begin and TempExtent_end queryabl
   end
 
   it 'correctly renders the exception response for a GetDomain without a service and version' do
-    get '/collections', :request => 'GetDomain', :PropertyName => 'TempExtent_begin'
+    get '/collections', :params => {  :request => 'GetDomain', :PropertyName => 'TempExtent_begin' }
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)

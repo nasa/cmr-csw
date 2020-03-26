@@ -18,7 +18,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
     <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
         eos
-        post '/collections', valid_get_record_by_id_request_xml
+        post '/collections', :params => valid_get_record_by_id_request_xml
 
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
@@ -43,7 +43,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
     <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
         eos
-        post '/collections', valid_get_record_by_id_request_xml
+        post '/collections', :params => valid_get_record_by_id_request_xml
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -67,7 +67,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
       eos
-      post '/collections', valid_get_record_by_id_request_xml
+      post '/collections', :params => valid_get_record_by_id_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_record_by_id/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -90,7 +90,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -114,7 +114,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -137,7 +137,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -161,7 +161,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -185,7 +185,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">foo</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -209,7 +209,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
   <ElementSetName typeNames="csw:Record">full</ElementSetName>
 </csw:GetRecordById>
     eos
-    post '/collections', valid_get_record_by_id_request_xml
+    post '/collections', :params => valid_get_record_by_id_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -235,7 +235,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
     <ElementSetName typeNames="csw:Record">brief</ElementSetName>
 </csw:GetRecordById>
         eos
-        post '/collections', valid_get_record_by_id_request_xml
+        post '/collections', :params => valid_get_record_by_id_request_xml
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -269,7 +269,7 @@ RSpec.describe 'Get Record By ID http POST specs', :type => :request do
     <ElementSetName typeNames="csw:Record">brief</ElementSetName>
 </csw:GetRecordById>
         eos
-        post '/collections', valid_get_record_by_id_request_xml
+        post '/collections', :params => valid_get_record_by_id_request_xml
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_record_by_id/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)

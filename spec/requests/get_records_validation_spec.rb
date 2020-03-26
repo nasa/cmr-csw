@@ -32,7 +32,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
     </csw:Query>
 </csw:GetRecords>
         eos
-        post '/collections', valid_get_records_request_xml
+        post '/collections', :params => valid_get_records_request_xml
         records_xml = Nokogiri::XML(response.body)
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_records/index.xml.erb')
@@ -71,7 +71,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bad_get_records_request_xml
+      post '/collections', :params => bad_get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -110,7 +110,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bad_get_records_request_xml
+      post '/collections', :params => bad_get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -149,7 +149,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bad_get_records_request_xml
+      post '/collections', :params => bad_get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -193,7 +193,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
   </csw:Query>
 </csw:GetRecords>
     eos
-    post '/collections', bad_get_records_request_xml
+    post '/collections', :params => bad_get_records_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -231,7 +231,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
   </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bad_get_records_request_xml
+      post '/collections', :params => bad_get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -270,7 +270,7 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
   </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bad_get_records_request_xml
+      post '/collections', :params => bad_get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -284,4 +284,3 @@ RSpec.describe 'various GetRecords GET and POST requests for request validation 
 
   end
 end
-

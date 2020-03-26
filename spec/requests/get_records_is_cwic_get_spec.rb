@@ -2,8 +2,8 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
 
   it 'correctly renders RESULTS FULL ISO MENDS (gmi) data in response to a basic IsCwic constraint GET request' do
     VCR.use_cassette 'requests/get_records/gmi/cwic_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -23,8 +23,8 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
       expect(search_results_node_set[0]['elementSet']).to eq('full')
       expect(search_results_node_set[0]['recordSchema']).to eq('http://www.isotc211.org/2005/gmi')
 
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -48,10 +48,10 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
 
   it 'correctly renders FULL RESULTS ISO MENDS (GMI) data in response to a AOI_TOI_AnyText_Title_IsCwic constraint GET request' do
     VCR.use_cassette 'requests/get_records/gmi/cwic_2', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
           :resultType => 'results',
           :constraint => 'BoundingBox=-180.00,-90.00,180.000,90 and AnyText=*MODIS* and TempExtent_begin=1990-09-03T00:00:01Z and TempExtent_end=2008-09-06T23:59:59Z and IsCwic=true',
-          :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+          :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -75,8 +75,8 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
 
   it 'correctly renders HITS data in response to an IsCwic ONLY constraint and resultType HITS GET request' do
     VCR.use_cassette 'requests/get_records/gmi/cwic_3', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT', :resultType => 'hits'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT', :resultType => 'hits' }
       expect(response).to have_http_status(:success)
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
@@ -95,8 +95,8 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
       children = search_results_node_set.children
       expect(children.size).to eq 0
 
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'hits'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'hits' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -118,8 +118,8 @@ RSpec.describe "various successful GetRecords GET requests with the IsCwic const
 
   it 'correctly renders HITS data (default) in response to an IsCwic ONLY constraint and NO resultType GET request' do
     VCR.use_cassette 'requests/get_records/gmi/cwic_4', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :constraint => 'IsCwic=true', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

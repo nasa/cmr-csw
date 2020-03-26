@@ -28,7 +28,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
     end
@@ -59,7 +59,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -99,7 +99,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -139,7 +139,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -178,7 +178,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -188,7 +188,7 @@ describe "GetRecords BBOX error cases" do
       expect(exception_node_set[0]['exceptionCode']).to eq('InvalidParameterValue')
       expect(exception_node_set[0]['locator']).to eq('BoundingBox')
       exception_text = exception_node_set[0].at_xpath('//ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows')
-      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner longitude -181.0 must be between -180 and 180 degrees\"]")
+      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner longitude -181 must be between -180 and 180 degrees\"]")
     end
   end
 
@@ -217,7 +217,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -227,7 +227,7 @@ describe "GetRecords BBOX error cases" do
       expect(exception_node_set[0]['exceptionCode']).to eq('InvalidParameterValue')
       expect(exception_node_set[0]['locator']).to eq('BoundingBox')
       exception_text = exception_node_set[0].at_xpath('//ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows')
-      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner latitude -91.0 must be between -90 and 90 degrees\"]")
+      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner latitude -91 must be between -90 and 90 degrees\"]")
     end
   end
 
@@ -256,7 +256,7 @@ describe "GetRecords BBOX error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -266,7 +266,7 @@ describe "GetRecords BBOX error cases" do
       expect(exception_node_set[0]['exceptionCode']).to eq('InvalidParameterValue')
       expect(exception_node_set[0]['locator']).to eq('BoundingBox')
       exception_text = exception_node_set[0].at_xpath('//ows:Exception/ows:ExceptionText', 'ows' => 'http://www.opengis.net/ows')
-      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner longitude -181.0 must be between -180 and 180 degrees\", \"Lowercorner latitude -91.0 must be between -90 and 90 degrees\"]")
+      expect(exception_text.text).to eq("not in the supported ISO format. [\"Lowercorner longitude -181 must be between -180 and 180 degrees\", \"Lowercorner latitude -91 must be between -90 and 90 degrees\"]")
     end
   end
 

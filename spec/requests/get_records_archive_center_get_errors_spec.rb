@@ -1,8 +1,8 @@
 describe "ArchiveCenter GetRecords ArchiveCenter error cases for GET requests" do
   it 'correctly renders the exception page in when there is NO ArchiveCenter value in the POST request' do
     VCR.use_cassette 'requests/get_records/gmi/archive_center_error_1', :decode_compressed_response => true, :record => :once do
-      get '/collections', :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
-          :resultType => 'results', :constraint => 'ArchiveCenter', :CONSTRAINTLANGUAGE => 'CQL_TEXT'
+      get '/collections', :params => {  :request => 'GetRecords', :service => 'CSW', :version => '2.0.2', :ElementSetName => 'full',
+          :resultType => 'results', :constraint => 'ArchiveCenter', :CONSTRAINTLANGUAGE => 'CQL_TEXT' }
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'

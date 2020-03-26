@@ -6,7 +6,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
   describe 'SUCCESS GET and POST routing scenarios' do
 
     it 'correctly routes a valid GetCapabilities GET request' do
-      get '/collections', :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2'
+      get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2' } 
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_capabilities/index.xml.erb')
       capabilities_xml = Nokogiri::XML(response.body)
@@ -30,7 +30,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" service="CSW" version="2.0.2">
 </csw:GetCapabilities>
       eos
-      post '/collections', valid_get_capabilities_request_xml
+      post '/collections', :params => valid_get_capabilities_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_capabilities/index.xml.erb')
       capabilities_xml = Nokogiri::XML(response.body)
@@ -56,7 +56,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
   describe 'INVALID GET and POST requests scenarios' do
 
     it "correctly handles an invalid (bad 'service' value) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities', :service => 'CSW_BAD', :version => '2.0.2'
+      get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW_BAD', :version => '2.0.2' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -67,7 +67,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
     end
 
     it "correctly handles an invalid (bad 'version' value) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.BAD'
+      get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.BAD' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -78,7 +78,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
     end
 
     it "correctly handles an invalid (bad 'service' and 'version' value) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities', :service => 'CSW_BAD', :version => '2.0.BAD'
+      get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW_BAD', :version => '2.0.BAD' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -92,7 +92,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
     end
 
     it "correctly handles an invalid (missing 'version' value) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities', :service => 'CSW'
+      get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -103,7 +103,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
     end
 
     it "correctly handles an invalid (missing 'service' value) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities', :version => '2.0.2'
+      get '/collections', :params => {  :request => 'GetCapabilities', :version => '2.0.2' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -114,7 +114,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
     end
 
     it "correctly handles an invalid (missing 'service' and 'version' values) GetCapabilities GET request" do
-      get '/collections', :request => 'GetCapabilities'
+      get '/collections', :params => {  :request => 'GetCapabilities' } 
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -139,7 +139,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" service="CSW_BAD" version="2.0.2">
 </csw:GetCapabilities>
       eos
-      post '/collections', bad_get_capabilities_request_xml
+      post '/collections', :params => bad_get_capabilities_request_xml
       expect(response).to have_http_status(:bad_request)
       exception_xml = Nokogiri::XML(response.body)
       expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -163,7 +163,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" service="CSW" version="2.0.BAD">
 </csw:GetCapabilities>
     eos
-    post '/collections', bad_get_capabilities_request_xml
+    post '/collections', :params => bad_get_capabilities_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -187,7 +187,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" version="2.0.2">
 </csw:GetCapabilities>
     eos
-    post '/collections', bad_get_capabilities_request_xml
+    post '/collections', :params => bad_get_capabilities_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -210,7 +210,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd" service="CSW">
 </csw:GetCapabilities>
     eos
-    post '/collections', bad_get_capabilities_request_xml
+    post '/collections', :params => bad_get_capabilities_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -234,7 +234,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
         xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 CSW-discovery.xsd">
 </csw:GetCapabilities>
     eos
-    post '/collections', bad_get_capabilities_request_xml
+    post '/collections', :params => bad_get_capabilities_request_xml
     expect(response).to have_http_status(:bad_request)
     exception_xml = Nokogiri::XML(response.body)
     expect(exception_xml.root.name).to eq 'ExceptionReport'
@@ -249,7 +249,7 @@ RSpec.describe 'various GetCapabilities GET and POST requests', :type => :reques
   end
 
   it 'correctly describes the old contact information' do
-    get '/collections', :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2'
+    get '/collections', :params => {  :request => 'GetCapabilities', :service => 'CSW', :version => '2.0.2' } 
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_capabilities/index.xml.erb')
     capabilities_xml = Nokogiri::XML(response.body)

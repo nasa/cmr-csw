@@ -13,7 +13,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable success scenarios', :ty
     <PropertyName>Modified</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -41,7 +41,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable success scenarios', :ty
     <PropertyName>NOT_ALLOWED BUT NO ERROR REQUIRED BY CSW SPEC</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -70,7 +70,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable success scenarios', :ty
     <PropertyName>UNKNOWN_PROPERTY</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -97,7 +97,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable error scenarios', :type
     <PropertyName>UNKNOWN_PROPERTY</PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)
@@ -129,7 +129,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable error scenarios', :type
     <PropertyName>UNKNOWN_PROPERTY</MALFORMEDPropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)
@@ -156,7 +156,7 @@ RSpec.describe 'GetDomain http POST "Modified" queryable error scenarios', :type
     <PropertyName></PropertyName>
 </GetDomain>
     eos
-    post '/collections', post_xml
+    post '/collections', :params => post_xml
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)

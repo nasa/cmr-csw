@@ -29,7 +29,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to have_http_status(:bad_request)
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -72,7 +72,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -113,7 +113,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -154,7 +154,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -195,7 +195,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -236,7 +236,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -277,7 +277,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'
@@ -318,7 +318,7 @@ describe "GetRecords gml:Polygon error cases" do
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', get_records_request_xml
+      post '/collections', :params => get_records_request_xml
       expect(response).to render_template('shared/exception_report.xml.erb')
       records_xml = Nokogiri::XML(response.body)
       expect(records_xml.root.name).to eq 'ExceptionReport'

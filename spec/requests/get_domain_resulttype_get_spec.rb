@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "resultType" request parameter success scenarios', :type => :request do
 
   it 'correctly renders the response for the resultType ParameterName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.resultType'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.resultType' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -19,7 +19,7 @@ RSpec.describe 'GetDomain http GET "resultType" request parameter success scenar
   end
 
   it 'correctly renders the response for resultType and an unknown parameter' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.resultType,UNKNOWN_PARAMETER'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :ParameterName => 'GetRecords.resultType,UNKNOWN_PARAMETER' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -42,7 +42,7 @@ end
 
 RSpec.describe 'GetDomain http GET "GetRecords.resultType" parameter error scenarios', :type => :request do
   it 'correctly renders the exception response for a GetDomain without a service and version' do
-    get '/collections', :request => 'GetDomain', :PropertyName => 'Modified'
+    get '/collections', :params => {  :request => 'GetDomain', :PropertyName => 'Modified' }
     expect(response).to have_http_status(:bad_request)
     expect(response).to render_template('shared/exception_report.xml.erb')
     records_xml = Nokogiri::XML(response.body)

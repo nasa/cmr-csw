@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe 'GetDomain http GET "Instrument" queryable success scenarios', :type => :request do
 
   it 'correctly renders the response for the Instrument  PropertyName' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Instrument'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Instrument' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -19,8 +19,8 @@ RSpec.describe 'GetDomain http GET "Instrument" queryable success scenarios', :t
   end
 
   it 'correctly renders the response for TempExtent_begin,TempExtent_end,Modified, Platform, Instrument properties' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2',
-        :PropertyName => 'TempExtent_begin,TempExtent_end, Modified, Platform,Instrument'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2',
+        :PropertyName => 'TempExtent_begin,TempExtent_end, Modified, Platform,Instrument' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)
@@ -70,7 +70,7 @@ RSpec.describe 'GetDomain http GET "Instrument" queryable success scenarios', :t
   end
 
   it 'correctly renders the response for Instrument and an unknown property' do
-    get '/collections', :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Instrument,UNKNOWN_PROPERTY'
+    get '/collections', :params => {  :request => 'GetDomain', :service => 'CSW', :version => '2.0.2', :PropertyName => 'Instrument,UNKNOWN_PROPERTY' }
     expect(response).to have_http_status(:success)
     expect(response).to render_template('get_domain/index.xml.erb')
     domain_xml = Nokogiri::XML(response.body)

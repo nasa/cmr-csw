@@ -19,7 +19,7 @@ RSpec.describe "various GetRecords POST requests with NO CONSTRAINTS", :type => 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', no_constraints_get_records_request_xml
+      post '/collections', :params => no_constraints_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -45,7 +45,7 @@ RSpec.describe "various GetRecords POST requests with NO CONSTRAINTS", :type => 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', no_constraints_get_records_request_xml
+      post '/collections', :params => no_constraints_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -80,7 +80,7 @@ RSpec.describe "various GetRecords POST requests with NO CONSTRAINTS", :type => 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', no_constraints_get_records_request_xml
+      post '/collections', :params => no_constraints_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -115,7 +115,7 @@ RSpec.describe "various GetRecords POST requests with NO CONSTRAINTS", :type => 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', valid_get_records_request_xml, headers: { "From-Cwic-Smart" => "Y" }
+      post '/collections', :params => valid_get_records_request_xml, headers: { "From-Cwic-Smart" => "Y" }
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -144,7 +144,7 @@ RSpec.describe "various GetRecords POST requests with NO CONSTRAINTS", :type => 
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', valid_get_records_request_xml
+      post '/collections', :params => valid_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

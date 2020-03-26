@@ -28,7 +28,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_constraint_get_records_request_xml
+      post '/collections', :params => bbox_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -74,7 +74,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_only_constraint_get_records_request_xml
+      post '/collections', :params => bbox_only_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -141,7 +141,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_only_constraint_get_records_request_xml
+      post '/collections', :params => bbox_only_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -221,7 +221,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_only_constraint_get_records_request_xml
+      post '/collections', :params => bbox_only_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -279,7 +279,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_only_constraint_get_records_request_xml
+      post '/collections', :params => bbox_only_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)
@@ -336,7 +336,7 @@ RSpec.describe "various GetRecords POST requests based on spatial BoundingBox cr
     </csw:Query>
 </csw:GetRecords>
       eos
-      post '/collections', bbox_only_constraint_get_records_request_xml
+      post '/collections', :params => bbox_only_constraint_get_records_request_xml
       expect(response).to have_http_status(:success)
       expect(response).to render_template('get_records/index.xml.erb')
       records_xml = Nokogiri::XML(response.body)

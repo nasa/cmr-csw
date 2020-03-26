@@ -49,7 +49,7 @@ RSpec.describe "various GetRecords POST requests to evaluate and improve perform
         resident_set_size_MB_start = (`ps -o rss= -p #{Process.pid}`.to_i/1024)
         num_objects_start = ObjectSpace.count_objects
 
-        post '/collections', toi_only_constraint_get_records_request_xml.gsub('maxRecordsPlaceholder', max_records.to_s)
+        post '/collections', :params => toi_only_constraint_get_records_request_xml.gsub('maxRecordsPlaceholder', max_records.to_s)
         expect(response).to have_http_status(:success)
         expect(response).to render_template('get_records/index.xml.erb')
         records_xml = Nokogiri::XML(response.body)
@@ -84,4 +84,3 @@ RSpec.describe "various GetRecords POST requests to evaluate and improve perform
     end
   end
 end
-
