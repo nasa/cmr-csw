@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').chomp.split('-')[1] { |f| "ruby '#{f}'"}
 
 gem 'sass-rails'
-gem 'rails', '5.2.4.4'
+gem 'rails', '5.2.4.5'
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'nokogiri', '>= 1.11.0.rc4'
