@@ -18,6 +18,7 @@ gem 'loofah', '>= 2.3.1'
 gem 'rack', '~> 2.0'
 gem 'rake', '12.3.3'
 gem 'sprockets', '3.7.2'
+gem 'mimemagic', '~> 0.3.7'
 
 group :assets do
   gem 'coffee-rails'
