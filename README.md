@@ -29,13 +29,13 @@ See public/licenses.txt
 
 ## Installation
 
-* Ruby 2.5.3
+* Ruby 2.7.2
 * A Ruby version manager such as [RVM](http://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv) is strongly recommended.
 
 ### Initial setup
-Once the repository is cloned locally and Ruby 2.5.3 is installed, you must install the dependencies.
+Once the repository is cloned locally and Ruby 2.7.2 is installed, you must install the dependencies.
 If you don't have the [bundler](http://bundler.io/) gem already installed, execute the command below in the project root directory:
-   
+
     gem install bundler   
 
 or if you wish to install the bundler without documentation:
@@ -50,19 +50,19 @@ Install all the gem dependencies:
 The application requires the environment variables below to be set.
 
 String that uniquely identifies your specific CMR CSW installation:
-    
+
     client_id = <your client identifier>
-    
+
 ### Run the automated [Rspec](http://rspec.info/) tests
 Execute the command below in the project root directory:
 
-    bin/rspec
+    bundle exec rspec
 
 All tests should pass.
 
 ### Run the application
 Execute the command below in the project root directory:
 
-    rails server
+    bundle exec rails server
 
 Open `http://localhost:3000/csw` in a local browser.
