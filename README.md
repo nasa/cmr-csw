@@ -1,5 +1,7 @@
 # [CMR CATALOGUE SERVICE FOR THE WEB (CSW)](https://cmr.earthdata.nasa.gov/csw)
 
+THIS REPOSITORY IS NO LONGER BEING MAINTAINED.
+
 Visit NASA's CSW based on the EOSDIS COMMON METADATA REPOSITORY (CMR) at
 [https://cmr.earthdata.nasa.gov/csw](https://cmr.earthdata.nasa.gov/csw)
 
